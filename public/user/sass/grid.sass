@@ -1,0 +1,1477 @@
+/* Admi Grid */
+/* Version 1 */
+
+// Base
+html, body
+    box-sizing: border-box
+    width: 100%
+    max-width: 100%
+    overflow-x: hidden
+
+// Grid
+.grid
+    display: flex
+    width: 100%
+    justify-content: space-between
+    box-sizing: border-box
+    flex-wrap: wrap
+    [class^="col-"]
+        box-sizing: border-box
+    &.example-grid
+        [class^="col-"]
+            margin: 10px 0
+            // padding: 4px
+            font-size: 14px
+            font-family: sans-serif
+            color: white
+            background: rgba(blue, 0.6)
+    // col-x
+    .col-1
+        // width: 3.222%
+        width: calc( 100% / 18 - 2vw )
+    .col-2
+        // width: 9%
+        width: calc( 100% / 9 - 2vw )
+    .col-3
+        // width: 14.65%
+        width: calc( 100% / 6 - 2vw )
+    .col-4
+        // width: 20.35%
+        width: calc( 100% / 4.5 - 2vw )
+    .col-5
+        // width: 26.05%
+        width: calc( 100% / 3.6 - 2vw )
+    .col-6
+        // width: 31.65%
+        width: calc( 100% / 3 - 2vw )
+    .col-7
+        // width: 37.3%
+        width: calc( 100% / 2.57142857 - 2vw )
+    .col-8
+        // width: 43%
+        width: calc( 100% / 2.25 - 2vw )
+    .col-9
+        // width: 48.7%
+        width: calc( 100% / 2 - 2vw )
+    .col-10
+        // width: 54.5%
+        width: calc( 100% / 1.8 - 2vw )
+    .col-11
+        // width: 60%
+        width: calc( 100% / 1.63636364 - 2vw )
+    .col-12
+        // width: 65.6%
+        width: calc( 100% / 1.5 - 2vw )
+    .col-13
+        // width: 71.5%
+        width: calc( 100% / 1.38461538 - 2vw )
+    .col-14
+        // width: 77.1%
+        width: calc( 100% / 1.28571429 - 2vw )
+    .col-15
+        // width: 82.5%
+        width: calc( 100% / 1.2 - 2vw )
+    .col-16
+        // width: 88.2%
+        width: calc( 100% / 1.125 - 2vw )
+    .col-17
+        // width: 94.178%
+        width: calc( 100% / 1.05882353 - 2vw )
+    .col-18
+        width: 100%
+    // col-x-s
+    .col-1-s
+        // width: 3.222%
+        width: calc( 100% / 18 - 2vw )
+    .col-2-s
+        // width: 9%
+        width: calc( 100% / 9 - 2vw )
+    .col-3-s
+        // width: 14.65%
+        width: calc( 100% / 6 - 2vw )
+    .col-4-s
+        // width: 20.35%
+        width: calc( 100% / 4.5 - 2vw )
+    .col-5-s
+        // width: 26.05%
+        width: calc( 100% / 3.6 - 2vw )
+    .col-6-s
+        // width: 31.65%
+        width: calc( 100% / 3 - 2vw )
+    .col-7-s
+        // width: 37.3%
+        width: calc( 100% / 2.57142857 - 2vw )
+    .col-8-s
+        // width: 43%
+        width: calc( 100% / 2.25 - 2vw )
+    .col-9-s
+        // width: 48.7%
+        width: calc( 100% / 2 - 2vw )
+    .col-10-s
+        // width: 54.5%
+        width: calc( 100% / 1.8 - 2vw )
+    .col-11-s
+        // width: 60%
+        width: calc( 100% / 1.63636364 - 2vw )
+    .col-12-s
+        // width: 65.6%
+        width: calc( 100% / 1.5 - 2vw )
+    .col-13-s
+        // width: 71.5%
+        width: calc( 100% / 1.38461538 - 2vw )
+    .col-14-s
+        // width: 77.1%
+        width: calc( 100% / 1.28571429 - 2vw )
+    .col-15-s
+        // width: 82.5%
+        width: calc( 100% / 1.2 - 2vw )
+    .col-16-s
+        // width: 88.2%
+        width: calc( 100% / 1.125 - 2vw )
+    .col-17-s
+        // width: 94.178%
+        width: calc( 100% / 1.05882353 - 2vw )
+    .col-18-s
+        width: 100%
+
+    .align-right
+        text-align: right
+
+@media (min-width: 760px)
+    .grid
+        // col-x-m
+        .col-1-m
+            // width: 3.222%
+            width: calc( 100% / 18 - 2vw )
+        .col-2-m
+            // width: 9%
+            width: calc( 100% / 9 - 2vw )
+        .col-3-m
+            // width: 14.65%
+            width: calc( 100% / 6 - 2vw )
+        .col-4-m
+            // width: 20.35%
+            width: calc( 100% / 4.5 - 2vw )
+        .col-5-m
+            // width: 26.05%
+            width: calc( 100% / 3.6 - 2vw )
+        .col-6-m
+            // width: 31.65%
+            width: calc( 100% / 3 - 2vw )
+        .col-7-m
+            // width: 37.3%
+            width: calc( 100% / 2.57142857 - 2vw )
+        .col-8-m
+            // width: 43%
+            width: calc( 100% / 2.25 - 2vw )
+        .col-9-m
+            // width: 48.7%
+            width: calc( 100% / 2 - 2vw )
+        .col-10-m
+            // width: 54.5%
+            width: calc( 100% / 1.8 - 2vw )
+        .col-11-m
+            // width: 60%
+            width: calc( 100% / 1.63636364 - 2vw )
+        .col-12-m
+            // width: 65.6%
+            width: calc( 100% / 1.5 - 2vw )
+        .col-13-m
+            // width: 71.5%
+            width: calc( 100% / 1.38461538 - 2vw )
+        .col-14-m
+            // width: 77.1%
+            width: calc( 100% / 1.28571429 - 2vw )
+        .col-15-m
+            // width: 82.5%
+            width: calc( 100% / 1.2 - 2vw )
+        .col-16-m
+            // width: 88.2%
+            width: calc( 100% / 1.125 - 2vw )
+        .col-17-m
+            // width: 94.178%
+            width: calc( 100% / 1.05882353 - 2vw )
+        .col-18-m
+            width: 100%
+
+@media (min-width: 900px)
+    .grid
+        // col-x-l
+        .col-1-l
+            // width: 3.222%
+            width: calc( 100% / 18 - 2vw )
+        .col-2-l
+            // width: 9%
+            width: calc( 100% / 9 - 2vw )
+        .col-3-l
+            // width: 14.65%
+            width: calc( 100% / 6 - 2vw )
+        .col-4-l
+            // width: 20.35%
+            width: calc( 100% / 4.5 - 2vw )
+        .col-5-l
+            // width: 26.05%
+            width: calc( 100% / 3.6 - 2vw )
+        .col-6-l
+            // width: 31.65%
+            width: calc( 100% / 3 - 2vw )
+        .col-7-l
+            // width: 37.3%
+            width: calc( 100% / 2.57142857 - 2vw )
+        .col-8-l
+            // width: 43%
+            width: calc( 100% / 2.25 - 2vw )
+        .col-9-l
+            // width: 48.7%
+            width: calc( 100% / 2 - 2vw )
+        .col-10-l
+            // width: 54.5%
+            width: calc( 100% / 1.8 - 2vw )
+        .col-11-l
+            // width: 60%
+            width: calc( 100% / 1.63636364 - 2vw )
+        .col-12-l
+            // width: 65.6%
+            width: calc( 100% / 1.5 - 2vw )
+        .col-13-l
+            // width: 71.5%
+            width: calc( 100% / 1.38461538 - 2vw )
+        .col-14-l
+            // width: 77.1%
+            width: calc( 100% / 1.28571429 - 2vw )
+        .col-15-l
+            // width: 82.5%
+            width: calc( 100% / 1.2 - 2vw )
+        .col-16-l
+            // width: 88.2%
+            width: calc( 100% / 1.125 - 2vw )
+        .col-17-l
+            // width: 94.178%
+            width: calc( 100% / 1.05882353 - 2vw )
+        .col-18-l
+            width: 100%
+
+@media (min-width: 1200px)
+    .grid
+        // col-x-xl
+        .col-1-xl
+            // width: 3.222%
+            width: calc( 100% / 18 - 1.7vw )
+        .col-2-xl
+            // width: 9%
+            width: calc( 100% / 9 - 1.7vw )
+        .col-3-xl
+            // width: 14.65%
+            width: calc( 100% / 6 - 1.7vw )
+        .col-4-xl
+            // width: 20.35%
+            width: calc( 100% / 4.5 - 1.7vw )
+        .col-5-xl
+            // width: 26.05%
+            width: calc( 100% / 3.6 - 1.7vw )
+        .col-6-xl
+            // width: 31.65%
+            width: calc( 100% / 3 - 1.7vw )
+        .col-7-xl
+            // width: 37.3%
+            width: calc( 100% / 2.57142857 - 1.7vw )
+        .col-8-xl
+            // width: 43%
+            width: calc( 100% / 2.25 - 1.7vw )
+        .col-9-xl
+            // width: 48.7%
+            width: calc( 100% / 2 - 1.7vw )
+        .col-10-xl
+            // width: 54.5%
+            width: calc( 100% / 1.8 - 1.7vw )
+        .col-11-xl
+            // width: 60%
+            width: calc( 100% / 1.63636364 - 1.7vw )
+        .col-12-xl
+            // width: 65.6%
+            width: calc( 100% / 1.5 - 1.7vw )
+        .col-13-xl
+            // width: 71.5%
+            width: calc( 100% / 1.38461538 - 1.7vw )
+        .col-14-xl
+            // width: 77.1%
+            width: calc( 100% / 1.28571429 - 1.7vw )
+        .col-15-xl
+            // width: 82.5%
+            width: calc( 100% / 1.2 - 1.7vw )
+        .col-16-xl
+            // width: 88.2%
+            width: calc( 100% / 1.125 - 1.7vw )
+        .col-17-xl
+            // width: 94.178%
+            width: calc( 100% / 1.05882353 - 1.7vw )
+        .col-18-xl
+            width: 100%
+
+@media (min-width: 1400px)
+    .grid
+        // col-x-xxl
+        .col-1-xxl
+            // width: 3.222%
+            width: calc( 100% / 18 - 1.5vw )
+        .col-2-xxl
+            // width: 9%
+            width: calc( 100% / 9 - 1.5vw )
+        .col-3-xxl
+            // width: 14.65%
+            width: calc( 100% / 6 - 1.5vw )
+        .col-4-xxl
+            // width: 20.35%
+            width: calc( 100% / 4.5 - 1.5vw )
+        .col-5-xxl
+            // width: 26.05%
+            width: calc( 100% / 3.6 - 1.5vw )
+        .col-6-xxl
+            // width: 31.65%
+            width: calc( 100% / 3 - 1.5vw )
+        .col-7-xxl
+            // width: 37.3%
+            width: calc( 100% / 2.57142857 - 1.5vw )
+        .col-8-xxl
+            // width: 43%
+            width: calc( 100% / 2.25 - 1.5vw )
+        .col-9-xxl
+            // width: 48.7%
+            width: calc( 100% / 2 - 1.5vw )
+        .col-10-xxl
+            // width: 54.5%
+            width: calc( 100% / 1.8 - 1.5vw )
+        .col-11-xxl
+            // width: 60%
+            width: calc( 100% / 1.63636364 - 1.5vw )
+        .col-12-xxl
+            // width: 65.6%
+            width: calc( 100% / 1.5 - 1.5vw )
+        .col-13-xxl
+            // width: 71.5%
+            width: calc( 100% / 1.38461538 - 1.5vw )
+        .col-14-xxl
+            // width: 77.1%
+            width: calc( 100% / 1.28571429 - 1.5vw )
+        .col-15-xxl
+            // width: 82.5%
+            width: calc( 100% / 1.2 - 1.5vw )
+        .col-16-xxl
+            // width: 88.2%
+            width: calc( 100% / 1.125 - 1.5vw )
+        .col-17-xxl
+            // width: 94.178%
+            width: calc( 100% / 1.05882353 - 1.5vw )
+        .col-18-xxl
+            width: 100%
+
+@media (min-width: 1600px)
+    .grid
+        // col-x-xxxl
+        .col-1-xxxl
+            // width: 3.222%
+            width: calc( 100% / 18 - 1.5vw )
+        .col-2-xxxl
+            // width: 9%
+            width: calc( 100% / 9 - 1.5vw )
+        .col-3-xxxl
+            // width: 14.65%
+            width: calc( 100% / 6 - 1.5vw )
+        .col-4-xxxl
+            // width: 20.35%
+            width: calc( 100% / 4.5 - 1.5vw )
+        .col-5-xxxl
+            // width: 26.05%
+            width: calc( 100% / 3.6 - 1.5vw )
+        .col-6-xxxl
+            // width: 31.65%
+            width: calc( 100% / 3 - 1.5vw )
+        .col-7-xxxl
+            // width: 37.3%
+            width: calc( 100% / 2.57142857 - 1.5vw )
+        .col-8-xxxl
+            // width: 43%
+            width: calc( 100% / 2.25 - 1.5vw )
+        .col-9-xxxl
+            // width: 48.7%
+            width: calc( 100% / 2 - 1.5vw )
+        .col-10-xxxl
+            // width: 54.5%
+            width: calc( 100% / 1.8 - 1.5vw )
+        .col-11-xxxl
+            // width: 60%
+            width: calc( 100% / 1.63636364 - 1.5vw )
+        .col-12-xxxl
+            // width: 65.6%
+            width: calc( 100% / 1.5 - 1.5vw )
+        .col-13-xxxl
+            // width: 71.5%
+            width: calc( 100% / 1.38461538 - 1.5vw )
+        .col-14-xxxl
+            // width: 77.1%
+            width: calc( 100% / 1.28571429 - 1.5vw )
+        .col-15-xxxl
+            // width: 82.5%
+            width: calc( 100% / 1.2 - 1.5vw )
+        .col-16-xxxl
+            // width: 88.2%
+            width: calc( 100% / 1.125 - 1.5vw )
+        .col-17-xxxl
+            // width: 94.178%
+            width: calc( 100% / 1.05882353 - 1.5vw )
+        .col-18-xxxl
+            width: 100%
+
+// Spacing
+
+/* Main Padding: Para hacer espaciados entre los bordes del navegador y el contenido */
+/* Ocupar solo para separar contenido principal (no anidado) */
+
+// Padding Left
+// .mpd-l
+//     padding-left: 23px
+// // Padding Right
+// .mpd-r
+//     padding-right: 23px
+// // Padding Top
+// .mpd-t
+//     padding-top: 22px 
+// // Padding Bottom
+// .mpd-b
+//     padding-bottom: 22px 
+// // Padding Left + Right
+// .mpd-x
+//     padding-left: 23px
+//     padding-right: 23px
+// // Padding Top + Bottom
+// .mpd-y
+//     padding-top: 22px
+//     padding-bottom: 22px
+// .mpd-xy
+//     padding:
+//         top: 22px
+//         right: 23px
+//         bottom: 22px
+//         left: 23px
+
+// Section
+.section
+    margin-bottom: 38px
+    .section-header
+
+.modal-section
+    margin-bottom: 28px
+    &:last-child
+        margin-bottom: 0
+    .modal-section-header
+
+.space-available // Funciona con .grid
+    margin-bottom: 34px
+    .item // Funciona con .col-x
+        padding: 40px 14px 16px 14px
+        border-radius: 4px
+        position: relative
+        background-color: $lightGray
+        width: calc( 100% / 2 - 0.6vw )
+        &::before
+            content: "\e905"
+            top: 16px
+            right: 14px
+            position: absolute
+            font-family: 'icomoon' !important
+            speak: never
+            font-style: normal
+            font-weight: normal
+            font-variant: normal
+            text-transform: none
+            line-height: 1
+            font-size: 13px
+        .space-number
+            font-size: 34px
+            @include font-black
+            // margin-bottom: 7px
+        .space-name
+            font-size: 12px
+            margin-top: 4px
+            @include font-bold
+        &.reserved
+            background-color: $seaGreen
+        &.available
+            background-color: $vividYellow
+
+.video-grid
+    display: flex
+    flex-wrap: wrap
+    flex-flow row wrap
+    margin-top: 30px
+    justify-content: space-between
+    &::after
+        content: ''
+        flex: 0 1 32%
+    .video-item
+        width: 100%
+        background: $semiDarkBlack
+        border-radius: 4px
+        margin-bottom: 20px
+        overflow: hidden
+        outline: none
+        transition: all ease 0.3s
+        .img
+            width: 100%
+            height: 240px
+            padding: 16px 20px
+            position: relative
+            box-sizing: border-box
+            background-size: cover
+            background-position: center
+            background-repeat: no-repeat
+            background-color: $darkBlack
+            &::before
+                content: ''
+                position: absolute
+                background: rgba($semiDarkBlack, 0.3)
+                top: 0
+                left: 0
+                bottom: 0
+                right: 0
+                overflow: hidden
+                z-index: 1
+                transition: all ease 0.3s
+            &::after
+                content: ''
+                position: absolute
+                width: 45px
+                height: 45px
+                top: 0
+                left: 0
+                bottom: 0
+                right: 0
+                margin: auto
+                z-index: 2
+                background-repeat: no-repeat
+                background-size: contain
+                background-position: center
+                background-image: url('../assets/icons/icon-play.svg')
+                transition: all ease 0.3s
+            .tag
+                font-size: 12px
+                text-transform: capitalize
+                background-color: $seaGreen
+                display: inline-block
+                @include font-bold
+                padding: 5px 14px
+                color: $darkBlack
+                position: relative
+                z-index: 3
+                border-radius: 15px
+                &::before
+                    display: none
+        .data
+            display: flex
+            flex-wrap: wrap
+            box-sizing: border-box
+            padding: 18px 22px 22px
+            .title //h1, h2, h3, h4, h5, h6
+                width: 95%
+                color: $whiteCream
+                @include font-bold
+                // font-size: 15px
+                font-size: 17px
+                line-height: 140%
+            .date
+                color: $ultraDarkGray
+                font-size: 12px
+                width: 100%
+                margin-top: 32px
+                display: flex
+                justify-content: space-between
+                .the-date // p, span
+                    span[class^="icon"]
+                        margin-right: 4px
+                .time
+                    span[class^="icon"]
+                        margin-right: 4px
+        &:hover
+            transform: translateY(-1px)
+            .img
+                &:before
+                    background: rgba($semiDarkBlack, 0.1)
+                &:after
+                    transform: scale(0.95)
+        &:first-child
+            width: 100%
+            display: flex
+            flex-wrap: wrap
+            // height: 340px
+            .img
+                width: 100%
+                height: 240px
+                padding: 26px 30px
+                &::after
+                    width: 64px
+                    height: 64px
+            .data
+                align-content: space-between
+                width: 100%
+                // padding: 38px 38px
+                padding: 24px 24px 38px 24px
+                .title
+                    font-size: 25px
+                    line-height: 130%
+                    position: relative
+                    margin-top: 34px
+                    &::before
+                        top: -38px
+                        position: absolute
+                        content: 'Nuevo Video'
+                        font-size: 13px
+                        color: $seaGreen
+                .date
+                    font-size: 12px
+                    .the-date
+                    .time
+
+@media (min-width: 768px)
+    .video-grid
+        &::after
+            flex: 0 1 48.5%
+        .video-item
+            width: 48.5%
+            .img
+                height: 190px
+            &:first-child
+                display: flex
+                flex-wrap: nowrap
+                height: 340px
+                .img
+                    width: 55%
+                    height: 100%
+                    padding: 26px 30px
+                    &::after
+                        width: 64px
+                        height: 64px
+                .data
+                    width: 45%
+                    align-content: space-between
+                    padding: 38px 38px 28px 38px
+                    .title
+                        font-size: 25px
+                        line-height: 130%
+                        position: relative
+                        margin-top: 34px
+                        &::before
+                            top: -38px
+                            position: absolute
+                            content: 'Nuevo Video'
+                            font-size: 13px
+                            color: $seaGreen
+                    .date
+                        // font-size: 12px
+                        flex-wrap: wrap
+                        .the-date
+                            width: 100%
+                            margin-bottom: 8px
+                        .time
+                            width: 100%
+
+@media (min-width: 1024px)
+    .video-grid
+        &::after
+            // flex: 0 1 32%
+        .video-item
+            // width: 32%
+            .img
+                // height: 190px
+            &:first-child
+                .img
+                .data
+                    .date
+                        font-size: 13px
+                        // flex-wrap: wrap
+                        // .the-date
+                        //     width: 100%
+                        //     margin-bottom: 8px
+                        // .time
+                        //     width: 100%
+
+@media (min-width: 1200px)
+    .video-grid
+        &::after
+            flex: 0 1 32%
+        .video-item
+            width: 32%
+            .img
+                // height: 190px
+            .data
+                .date
+                    margin-top: 48px
+            &:first-child
+                .img
+                .data
+                    .date
+                        flex-wrap: nowrap
+                        .the-date
+                            width: auto
+                        .time
+                            width: auto
+
+@media (min-width: 1340px)
+    .video-grid
+        &::after
+            flex: 0 1 32%
+        .video-item
+            width: 32%
+            .img
+                height: 220px
+            .data
+                .date
+                    margin-top: 48px
+            &:first-child
+                height: 350px
+                .img
+                .data
+                    .date
+                        flex-wrap: nowrap
+                        .the-date
+                            width: auto
+                        .time
+                            width: auto
+
+@media (min-width: 1480px)
+    .video-grid
+        &::after
+        .video-item
+            // width: 32%
+            .img
+                // height: 220px
+            .data
+                .date
+                    // margin-top: 48px
+            &:first-child
+                // height: 350px
+                .img
+                    width: 52%
+                .data
+                    width: 48%
+                    .date
+                        // flex-wrap: nowrap
+                        .the-date
+                            // width: auto
+                        .time
+                            // width: auto
+
+@media (min-width: 1600px)
+    .video-grid
+        &::after
+        .video-item
+            // width: 32%
+            .img
+                height: 250px
+            .data
+                .date
+                    // margin-top: 48px
+            &:first-child
+                height: 400px
+                .img
+                    width: 55%
+                .data
+                    width: 45%
+                    .date
+                        // flex-wrap: nowrap
+                        .the-date
+                            // width: auto
+                        .time
+                            // width: auto
+
+@media (min-width: 1800px)
+    .video-grid
+        &::after
+        .video-item
+            // width: 32%
+            .img
+                height: 290px
+            .data
+                .date
+                    // margin-top: 48px
+            &:first-child
+                height: 480px
+                .img
+                    // width: 55%
+                .data
+                    // width: 45%
+                    .date
+                        // flex-wrap: nowrap
+                        .the-date
+                            // width: auto
+                        .time
+                            // width: auto
+
+@keyframes transmit
+    0%
+        transform: scale(1)
+        opacity: 0
+    20%
+        opacity: 1
+    50%
+        transform: scale(5)
+        // opacity: 1
+        // opacity: 0
+    60%
+        opacity: 0
+    100%
+        transform: scale(1)
+        opacity: 0
+    
+// Single Video
+.single-video-wrapper // con .grid
+    // min-width: 70vh
+    align-items: stretch
+    align-content: stretch
+    overflow: hidden
+    // Seccion header + reproductor
+    .single-video
+        .single-video-header
+            margin-bottom: 28px
+            .video-title
+                vertical-align: middle
+                padding-right: 30px
+                .back-link
+                    display: block
+                    // width: 100%
+                    margin-bottom: 16px
+                    color: $darkGray
+                    @include font-bold
+                    // font-size: 12px
+                    font-size: 14px
+                    transition: all ease 0.3s
+                    &:hover,
+                    &:focus
+                        color: $gray
+                    a
+                        color: $darkGray
+                        transition: all ease 0.3s
+                        &:hover,
+                        &:focus
+                            color: $gray
+                .tag // span, div, p, etc
+                    background-color: $seaGreen
+                    color: $black
+                    text-transform: capitalize
+                    font-size: 12px
+                    padding: 6px 15px
+                    border-radius: 28px
+                    margin-right: 8px
+                    line-height: 1
+                    vertical-align: 5px
+                    &:before
+                        display: none
+                .live
+                    width: 9px
+                    height: 9px
+                    background-color: red
+                    border-radius: 100%
+                    display: inline-block
+                    vertical-align: 4px
+                    margin-right: 6px
+                    margin-left: 6px
+                    opacity: 1
+                    // z-index: 1
+                    position: relative
+                    &::after
+                        content: ''
+                        position: absolute
+                        // z-index: 99999
+                        top: 0
+                        left: 0
+                        right: 0
+                        bottom: 0
+                        background: red
+                        margin: auto
+                        width: 4px
+                        height: 4px
+                        opacity: 0
+                        border-radius: 100%
+                        animation: transmit 2s infinite
+                .title // h1, h2, h3, h4, h5, h6
+                    // font-size: 25px
+                    font-size: 22px
+                    @include font-bold
+                    display: inline
+                    box-sizing: border-box
+                    // line-height: 125%
+                    line-height: 130%
+            .date-wrapper
+                margin-top: 16px 
+                color: $darkGray
+                // font-size: 12px
+                font-size: 13px
+                span[class^="icon"]
+                    margin-right: 6px
+                .date // p
+                    display: block
+                    margin-right: 0
+                    margin-bottom: 8px
+                .time // p
+                    display: block
+                    margin-right: 0
+                    margin-bottom: 8px
+                .views // p
+                    display: inline-block
+                    margin-bottom: 8px
+                .stars
+                    margin-top: 10px
+                    span
+                        margin-right: 0
+                        cursor: pointer
+                        &.active
+                            color: $seaGreen
+        .single-video-frame
+            background-color: black
+            position: relative
+            width: 100%
+            overflow: hidden
+            &:before
+                display: block
+                content: ''
+                padding-top: 56.5%
+                // padding-top: calc( 100vw - 134% )
+            iframe, video
+                width: 100%
+                height: 100%
+                border: 0
+                position: absolute
+                top: 0
+                left: 0
+    .single-video-box
+        background-color: $semiDarkBlack
+        box-sizing: border-box
+        overflow: hidden
+        border-radius: 6px
+        margin-top: 24px
+        margin-bottom: 12px
+        .header
+            display: flex
+            flex-wrap: nowrap
+            width: 100%
+            // justify-content: stretch
+            justify-content: space-between
+            a
+                cursor: pointer
+                width: 100%
+                text-align: center
+                padding: 16px 0
+                font-size: 12px
+                @include font-bold
+                color: white
+                background-color: $darkBlack
+                outline: none
+                transition: all ease 0.3s
+                &.active
+                    background-color: $semiDarkBlack
+                    color: $seaGreen
+        .content
+            position: relative
+            overflow-y: hidden
+            .tab-content
+                display: none
+                height: 66vh
+                position: relative
+                box-sizing: border-box
+                width: 100%
+                overflow-y: auto
+                &.active
+                    display: flex
+                    flex-wrap: wrap
+                    &::before
+                        content: ''  
+                .tab-content-body
+                    width: 100%
+                    box-sizing: border-box
+                    position: relative
+                    scrollbar-width: thin
+                    scrollbar-color: $semiDarkBlack $ultraDarkBlack
+                    &::-webkit-scrollbar
+                        width: 8px
+                    &::-webkit-scrollbar-track
+                        background: $semiDarkBlack
+                    &::-webkit-scrollbar-thumb
+                        border-radius: 20px
+                        background: $ultraDarkBlack
+                    .rutina
+                        padding: 26px 25px
+                        font-size: 13px
+                        color: $whiteCream !important
+                        line-height: 145% !important
+                        .title // span, h1, h2, h3, h4, h5, h6
+                            color: $ultraDarkGray
+                            text-transform: uppercase
+                            margin-top: 22px
+                            margin-bottom: 8px
+                            display: block
+                            &:first-child
+                                margin-top: 0
+                        p
+                            color: $whiteCream !important
+                            // line-height: 120% !important
+                            line-height: 145% !important
+                    .comments
+                        padding: 26px 22px
+                        .comment, .reply
+                            font-size: 13px
+                            margin-bottom: 30px
+                            &:last-child
+                                margin-bottom: 0
+                            .comment-header, .reply-header
+                                display: flex
+                                align-items: center
+                                margin-bottom: 13px
+                                .img
+                                    width: 33px
+                                    height: 33px
+                                    border-radius: 100%
+                                    background-color: $seaGreen
+                                    margin-right: 12px
+                                .data
+                                    .name //h1, h2, h3, h4. h5, 6
+                                        @include font-bold
+                                        font-size: 13px
+                                        margin-bottom: 4px
+                                    .time // p
+                                        font-size: 11px
+                                        color: $ultraDarkGray
+                            .comment-body, .reply-body
+                                .the-comment, .the-reply // p
+                                    font-size: 13px
+                                    line-height: 135%
+                                    margin-bottom: 10px
+                            .comment-footer, .reply-footer
+                                .do-reply, .answers
+                                    color: $ultraDarkGray
+                                    font-size: 11px
+                                    @include font-bold
+                                    transition: all ease 0.3s
+                                    &:hover,
+                                    &:focus
+                                        color: $darkGray
+                                .do-reply // a
+                                    margin-right: 16px
+                                .reply-comment
+                                    width: 100%
+                                    background-color: $ultraDarkBlack
+                                    margin-top: 14px
+                                    box-sizing: border-box
+                                    padding: 9px 6px
+                                    border-radius: 3px
+                                    margin-bottom: 12px
+                                    .reply-message
+                                        display: flex
+                                        justify-content: space-between
+                                        .message-box
+                                            width: 80%
+                                            height: 60px
+                                        button
+                                            align-self: flex-end
+                                            background: transparent
+                                            width: 20%
+                                            padding: 6px
+                                            padding-bottom: 10px
+                                            border-radius: 4px
+                                            &:hover,
+                                            &:focus
+                                               color: $seaGreen
+                                    button
+                                        width: 100%
+                                        padding: 6px 14px
+                                        display: block
+                                .answers //a
+                                    &::before
+                                        content: ''
+                                    &.active
+                                        &::before
+                                            content: ''
+                            // Respuestas
+                            .replies
+                                border-left: solid 2px $black
+                                padding-left: 18px
+                                // display: none
+                                transition: aimll ease 0.3s
+                                &.active
+                                    display: inherit
+                                .reply
+                                    padding: 0
+                                    margin-top: 22px
+                                    .reply-header
+                                        .img
+                                        .data
+                                            .name // h1, h2, h3, h4, h5, h6
+                                            .time // p
+                                    .reply-body
+                                        .the-reply // p
+                            // .reply
+                            //     padding: 0
+                            //     margin-top: 22px
+                .tab-content-footer
+                    // position: fixed
+                    // position: sticky
+                    width: 100%
+                    background-color: $ultraDarkBlack
+                    // bottom: 0
+                    // &::before
+                    //     content: ''
+                    //     position: absolute
+                    //     width: 95%
+                    //     height: 20px
+                    //     top: -20px
+                    //     background: linear-gradient(180deg, rgba(33, 37, 42, 0) 0%, #21252A 100%)
+                    .message-box
+                        display: flex
+                        flex-wrap: nowrap
+                        align-items: center
+                        align-content: center
+                        justify-content: space-between
+                        box-sizing: border-box
+                        // textarea,
+                        .textBox
+                            background-color: transparent
+                            font-family: 'Roboto', sans-serif
+                            font-size: 13px
+                            border: none
+                            box-sizing: border-box
+                            padding: 19px 25px
+                            // width: 79%
+                            width: auto
+                            height: 54px
+                            resize: none
+                            color: $whiteCream
+                            overflow: -moz-scrollbars-none
+                            -ms-overflow-style: none
+                            width: 100%
+                            overflow-y: auto
+                            &::-webkit-scrollbar
+                                width: 0 !important
+                        button
+                            background-color: transparent
+                            padding: 0
+                            // padding-right: 20px
+                            width: 20%
+                            width: 70px
+                            color: $ultraDarkGray
+                            &:hover,
+                            &:focus
+                                color: $seaGreen
+
+
+@media (min-width: 900px)
+    .single-video-wrapper // con .grid
+        .single-video
+            .single-video-header
+                .video-title
+                    .tag // span, div, p, etc
+                        &:before
+                    .title // h1, h2, h3, h4, h5, h6
+                        font-size: 25px
+                .date-wrapper
+                    span[class^="icon"]
+                    .date // p
+                        display: inline-block
+                        margin-right: 24px
+                        margin-bottom: 0
+                    .time // p
+                        display: inline-block
+                        margin-right: 24px
+                        margin-bottom: 0
+                    .views // p
+                        display: inline-block
+                        margin-right: 24px
+                        margin-bottom: 0
+                    .stars
+                        display: inline-block
+                        margin-top: 0px
+            .single-video-frame
+                &:before
+                iframe, video
+        .single-video-box
+            // margin-bottom: 0
+            .header
+                a
+                    &.active
+            .content
+                .tab-content
+                    // height: 36.5vw
+                    // height: 35vw
+                    &.active
+                    .tab-content-body
+                        .rutina
+                            .title // span, h1, h2, h3, h4, h5, h6
+                                &:first-child
+                            p
+                        .comments
+                            .comment, .reply
+                                &:last-child
+                                .comment-header, .reply-header
+                                    .img
+                                    .data
+                                        .name //h1, h2, h3, h4. h5, 6
+                                        .time // p
+                                .comment-body, .reply-body
+                                    .the-comment, .the-reply // p
+                                .comment-footer, .reply-footer
+                                    .do-reply, .answers
+                                        &:hover,
+                                        &:focus
+                                    .do-reply // a
+                                    .answers //a
+                                // Respuestas
+                                .replies
+                                    &.active
+                                    .reply
+                                        .reply-header
+                                            .img
+                                            .data
+                                                .name // h1, h2, h3, h4, h5, h6
+                                                .time // p
+                                        .reply-body
+                                            .the-reply // p
+                    .tab-content-footer
+                        &::before
+                        .message-box
+                            textarea
+                                &::-webkit-scrollbar
+                            button
+                                &:hover,
+                                &:focus
+
+@media (min-width: 1200px)
+    .single-video-wrapper // con .grid
+        .single-video
+            .single-video-header
+                .video-title
+                    .tag // span, div, p, etc
+                        &:before
+                    .title // h1, h2, h3, h4, h5, h6
+                        // font-size: 25px
+                .date-wrapper
+                    span[class^="icon"]
+                    .date // p
+                    .time // p
+                    .views // p
+            .single-video-frame
+                &:before
+                iframe, video
+        .single-video-box
+            margin-top: 0
+            margin-bottom: 0
+            .header
+                a
+                    &.active
+            .content
+                .tab-content
+                    // height: 36.5vw
+                    height: 35vw
+                    &.active
+                    .tab-content-body
+                        .rutina
+                            .title // span, h1, h2, h3, h4, h5, h6
+                                &:first-child
+                            p
+                        .comments
+                            .comment, .reply
+                                &:last-child
+                                .comment-header, .reply-header
+                                    .img
+                                    .data
+                                        .name //h1, h2, h3, h4. h5, 6
+                                        .time // p
+                                .comment-body, .reply-body
+                                    .the-comment, .the-reply // p
+                                .comment-footer, .reply-footer
+                                    .do-reply, .answers
+                                        &:hover,
+                                        &:focus
+                                    .do-reply // a
+                                    .answers //a
+                                // Respuestas
+                                .replies
+                                    // border-left: solid 2px $black
+                                    // padding-left: 18px
+                                    // display: none
+                                    // transition: all ease 0.3s
+                                    &.active
+                                        // display: inherit
+                                    .reply
+                                        // padding: 0
+                                        // margin-top: 22px
+                                        .reply-header
+                                            .img
+                                            .data
+                                                .name // h1, h2, h3, h4, h5, h6
+                                                .time // p
+                                        .reply-body
+                                            .the-reply // p
+                    .tab-content-footer
+                        // position: fixed
+                        // position: sticky
+                        width: 100%
+                        background-color: $ultraDarkBlack
+                        // bottom: 0
+                        // &::before
+                        //     content: ''
+                        //     position: absolute
+                        //     width: 95%
+                        //     height: 20px
+                        //     top: -20px
+                        //     background: linear-gradient(180deg, rgba(33, 37, 42, 0) 0%, #21252A 100%)
+                        .message-box
+                            display: flex
+                            flex-wrap: nowrap
+                            align-items: center
+                            align-content: center
+                            justify-content: space-between
+                            textarea
+                                background-color: transparent
+                                font-family: 'Roboto', sans-serif
+                                font-size: 13px
+                                border: none
+                                box-sizing: border-box
+                                padding: 19px 25px
+                                // width: 79%
+                                width: auto
+                                height: 54px
+                                resize: none
+                                color: $whiteCream
+                                overflow: -moz-scrollbars-none
+                                -ms-overflow-style: none
+                                width: 100%
+                                &::-webkit-scrollbar
+                                    width: 0 !important
+                            button
+                                background-color: transparent
+                                padding: 0
+                                // padding-right: 20px
+                                width: 20%
+                                width: 70px
+                                color: $ultraDarkGray
+                                &:hover,
+                                &:focus
+                                    color: $seaGreen
+
+@media (min-width: 1400px)
+    .single-video-wrapper // con .grid
+        .single-video
+            .single-video-header
+                .video-title
+                    .tag // span, div, p, etc
+                        &:before
+                    .title // h1, h2, h3, h4, h5, h6
+                        // font-size: 25px
+                .date-wrapper
+                    span[class^="icon"]
+                    .date // p
+                    .time // p
+                    .views // p
+            .single-video-frame
+                &:before
+                iframe, video
+        .single-video-box
+            // margin-top: 0
+            // margin-bottom: 0
+            .header
+                a
+                    &.active
+            .content
+                .tab-content
+                    // height: 35vw
+                    height: 36.5vw
+                    &.active
+                    .tab-content-body
+                        .rutina
+                            .title // span, h1, h2, h3, h4, h5, h6
+                                &:first-child
+                            p
+                        .comments
+                            .comment, .reply
+                                &:last-child
+                                .comment-header, .reply-header
+                                    .img
+                                    .data
+                                        .name //h1, h2, h3, h4. h5, 6
+                                        .time // p
+                                .comment-body, .reply-body
+                                    .the-comment, .the-reply // p
+                                .comment-footer, .reply-footer
+                                    .do-reply, .answers
+                                        &:hover,
+                                        &:focus
+                                    .do-reply // a
+                                    .answers //a
+                                // Respuestas
+                                .replies
+                                    // border-left: solid 2px $black
+                                    // padding-left: 18px
+                                    // display: none
+                                    // transition: all ease 0.3s
+                                    &.active
+                                        // display: inherit
+                                    .reply
+                                        // padding: 0
+                                        // margin-top: 22px
+                                        .reply-header
+                                            .img
+                                            .data
+                                                .name // h1, h2, h3, h4, h5, h6
+                                                .time // p
+                                        .reply-body
+                                            .the-reply // p
+                    .tab-content-footer
+                        // position: fixed
+                        // position: sticky
+                        // width: 100%
+                        // background-color: $ultraDarkBlack
+                        // bottom: 0
+                        // &::before
+                        //     content: ''
+                        //     position: absolute
+                        //     width: 95%
+                        //     height: 20px
+                        //     top: -20px
+                        //     background: linear-gradient(180deg, rgba(33, 37, 42, 0) 0%, #21252A 100%)
+                        .message-box
+                            // display: flex
+                            // flex-wrap: nowrap
+                            // align-items: center
+                            // align-content: center
+                            // justify-content: space-between
+                            textarea
+                                // background-color: transparent
+                                // font-family: 'Roboto', sans-serif
+                                // font-size: 13px
+                                // border: none
+                                // box-sizing: border-box
+                                // padding: 19px 25px
+                                // width: 79%
+                                // width: auto
+                                // height: 54px
+                                // resize: none
+                                // color: $whiteCream
+                                // overflow: -moz-scrollbars-none
+                                // -ms-overflow-style: none
+                                // width: 100%
+                                &::-webkit-scrollbar
+                                    // width: 0 !important
+                            button
+                                // background-color: transparent
+                                // padding: 0
+                                // padding-right: 20px
+                                // width: 20%
+                                // width: 70px
+                                // color: $ultraDarkGray
+                                &:hover,
+                                &:focus
+                                    // color: $seaGreen
+
+// Display none
+.d-none
+    display: none
+
+.o-hidden
+    overflow-y: hidden
