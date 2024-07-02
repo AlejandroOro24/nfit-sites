@@ -187,7 +187,7 @@ export default new Vuex.Store({
         },
         fetchPastClases() {
             this.dispatch('fetch', {
-                url: '/u/clases/fetch',
+                url: '/clases/fetch',
                 options: {
                     reset: false,  // If it's true reset the clases to the first page
                     method: 'paginatedPastClases',
@@ -199,7 +199,7 @@ export default new Vuex.Store({
         resetNextClases() {
             console.log('into resetNextClases');
             this.dispatch('fetch', {
-                url: '/u/clases/fetch',
+                url: '/clases/fetch',
                 options: {
                     reset: true,  //  If it's true, set the clases to first page
                     method: 'paginatedNextClases',

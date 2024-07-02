@@ -86,12 +86,17 @@
 import axios from 'axios';
 export default {
     name: 'PlansIndex',
-    props: ['payment_types', 'has_flow'],
+    props: [
+        'payment_types',
+        'has_flow',
+        'plan_periods',
+        'plan_statuses',
+    ],
     data() {
         return {
             actual_plan: {},
-            plan_statuses: {},
-            plan_periods: {},
+            // plan_statuses: {},
+            // plan_periods: {},
             plans_history: {},
             nextPage: '',
         }
@@ -100,8 +105,8 @@ export default {
 // console.log('this.has_flow');
 
         // console.log(this.has_flow);
-        this.getPlanStatuses();
-        this.getPlanPeriods();
+        // this.getPlanStatuses();
+        // this.getPlanPeriods();
         // Get historic authenticated user plans
         this.plansHistory();
         this.getActualPlan();
@@ -117,28 +122,31 @@ export default {
         },
         /** Get the actual plan of the authenticated user */
         getActualPlan() {
-            axios.get('/u/plans/active').then(response => {
-                // console.log(response.data.actual_plan);
+            axios.get('/plans/active').then(response => {
                 this.actual_plan = response.data.actual_plan;
             });
         },
-        /** Get all plan statuses ('activo', 'precompra', 'cancelado') */
-        getPlanStatuses() {
-            axios.get('/u/plans/statuses').then(response => {
-                this.plan_statuses = response.data.plan_statuses;
-            });
-        },
-        /** Get all plan periods ('mensual', 'bimensual', 'trimestral') */
-        getPlanPeriods() {
-            axios.get('/u/plans/periods').then(response => {
-                this.plan_periods = response.data.plan_periods;
-            });
-        },
+        /** Get all plan statuses ('activo', 'precompra', 'cancelado') 
+         *CAMBIAR A PROP
+        */
+        // getPlanStatuses() {
+        //     axios.get('/plans/statuses').then(response => {
+        //         this.plan_statuses = response.data.plan_statuses;
+        //         //CAMBIAR A PROP
+        //     });
+        // },
+        /** Get all plan periods ('mensual', 'bimensual', 'trimestral') 
+         *  //CAMBIAR A PROP
+        */
+        // getPlanPeriods() {
+        //     axios.get('/u/plans/periods').then(response => {
+        //         this.plan_periods = response.data.plan_periods;
+        //         //CAMBIAR A PROP
+        //     });
+        // },
         /** Get all plan periods ('mensual', 'bimensual', 'trimestral') */
         plansHistory() {
-            axios.get('/u/plans/historial').then(response => {
-                // console.log(response.data.data);
-                // console.log(response.data.next_page_url);
+            axios.get('/plans/historial').then(response => {
                 this.nextPage = response.data.next_page_url;
                 this.plans_history = response.data.data;
 

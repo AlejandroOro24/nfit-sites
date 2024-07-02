@@ -3,9 +3,12 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Models\Client;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use App\Tools\Database\DataManager;
+
+use Symfony\Component\HttpFoundation\Response;
 
 
 class CustomAuthMiddleware
@@ -18,7 +21,10 @@ class CustomAuthMiddleware
     public function handle(Request $request, Closure $next)
     {
         $tenant = $request->route()->parameter('tenant');
-        
+        // dd($tenant);
+        // DataManager::initClientDB(
+        //     Client::where('sub_domain', $tenant)->first()
+        // );
         // dd($next($request));
         // dd(Auth::user());
 

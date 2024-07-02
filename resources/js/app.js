@@ -39,7 +39,7 @@ Vue.component('clase-next', ClaseNextVue);
 Vue.component('profile-component', ProfileComponentVue);
 Vue.component('wod-today', WodTodayVue);
 Vue.component('stages', StagesVue.default);
-Vue.component('plans-index', PlansIndexVue.default);
+Vue.component('plans-index', PlansIndexVue);
 Vue.component('plans-buy', PlansBuyVue.default);
 
 // Create a new Vue instance

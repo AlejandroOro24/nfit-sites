@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Plans\PlanUser;
+use App\Models\Plans\PlanStatus;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Clases\Reservation;
 use App\Models\Clases\ReservationStatus;
@@ -57,6 +59,15 @@ class User extends Authenticatable
      */
     protected $appends = ['full_name', 'status_color'];
 
+
+    function activePlanUser()
+    {
+        return PlanUser::where('user_id', $this->id)
+            ->where('plan_status_id', PlanStatus::ACTIVE)
+            ->first();
+    }
+
+    
      /**
      *  get past user resrevations.
      *
@@ -100,6 +111,52 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
+    }
+
+    
+    /**
+     *  Get the next valid plan by an specific date,
+     *  can be a Active/Precompra Plan
+     *  user has a plan that lets him reserve a class in an SPECIFIC DATE.
+     *
+     *  @return  PlanUser
+     */
+    public function hasValidPlanThatCanReserveThisClass($date)
+    {
+        return $this->plan_users()->where('start_date', '<=', $date)
+                                    ->where('finish_date', '>=', $date)
+                                    ->whereIn('plan_status_id', [PlanStatus::ACTIVO, PlanStatus::PRECOMPRA])
+                                    ->first();
+    }
+
+    /**
+     *  Get the relation of all the plan_users which belongs to this user.
+     *
+     *  @return  \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function plan_users()
+    {
+        return $this->hasMany(PlanUser::class)->orderBy('plan_status_id', 'asc');
+    }
+
+
+
+      /**
+     *  Get the numbers of reservations booked the specified date.
+     *
+     *  todo: this doesn't belongs here
+     *
+     *  @return  integer
+     */
+    public function countReservationsOfThisDateDay($date)
+    {
+        return $this->join('reservations', 'reservations.user_id', '=', 'users.id')
+                    ->join('clases', 'reservations.clase_id', '=', 'clases.id')
+                    ->whereNull('reservations.deleted_at')
+                    ->where('clases.date', '>=', $date->copy()->startOfDay())
+                    ->where('clases.date', '<=', $date->copy()->endOfDay())
+                    ->where('users.id', $this->id)
+                    ->count('reservations.id');
     }
 
 }

@@ -39,7 +39,7 @@ class DashboardController extends Controller
 
         $todayWods =$database::table('wods')->where('date', today())->get();
 
-        $activePlanUser = $database::table('plan_user')->where('user_id' ,Auth::user()->id)->where('plan_status_id' , PlanStatus::ACTIVE)->first();
+        $activePlanUser = Auth::user()->activePlanUser();
 
         $lastVideo = $database::table('videos')->orderBy('release_at', 'desc')->where('release_at', '<=', now())->first();
         

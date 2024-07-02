@@ -48,6 +48,9 @@
 
     export default {
         components: { HorizontalList },
+        props: [
+            'clases_types',
+        ],
         data() {
             return {
                 allVideos: [],
@@ -62,25 +65,29 @@
         },
         mounted() {
             /**  Get videos  */
-            axios.get('/u/videos/get').then(
+            axios.get('/videos/get').then(
                 response => {
                     // this.allVideos = response.data.data;
                     this.allVideos = response.data;
                     this.filteredVideos = this.allVideos;
                     this.showedVideos = this.filteredVideos.slice(0,this.page*this.quantity+1);
+                    console.log(this.allVideos);
             });
 
-            /**  Get all clases types */
-            axios.get('/admin/clases-types-all').then(
-                response => {
-                    response.data.data.forEach(item => {
-                        this.allClasesTypes.push({
-                            id: item.id,
-                            clase_type: item.clase_type,
-                            clicked: false,
-                        });
-                    })
-            });
+            this.claseType();
+            /**  Get all clases types 
+             * CAMBIAR A PROPS
+            */
+            // axios.get('/admin/clases-types-all').then(
+            //     response => {
+            //         response.data.data.forEach(item => {
+            //             this.allClasesTypes.push({
+            //                 id: item.id,
+            //                 clase_type: item.clase_type,
+            //                 clicked: false,
+            //             });
+            //         })
+            // });
         },
         computed: {
             _thereMoreVideos() {
@@ -88,6 +95,15 @@
             }
         },
         methods:{
+            claseType(){
+                this.allClasesTypes.forEach(item => {
+                this.allClasesTypes.push({
+                id: item.id,
+                clase_type: item.clase_type,
+                clicked: false,
+                });
+            });
+            },
             filter() {
                 this.page = 1; /** reset to page one */
                 this.filteredVideos = this.allVideos;

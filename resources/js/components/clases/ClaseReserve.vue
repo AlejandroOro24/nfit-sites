@@ -70,6 +70,8 @@
                                 No hay horas disponibles para este día
                             </div>
                         </div>
+
+
                         <div v-if="(reserveStage == 4) && (stageLoaded)">
                             <a class="back-link" @click="stageSub()">≪ Volver</a>
                             <h3 class="modal-section-heading">Cupos</h3>
@@ -109,7 +111,9 @@
                                     <div class="img" v-bind:style="{ 'background-image': 'url(' + user.avatar + ')' }"></div>
                                     <div class="data">
                                         <h4 class="name">{{ user.full_name }}</h4>
-                                        <h5 class="tag">{{ capitalizeFirstLetter(user.status.name) }}</h5>
+                                        <!-- <h5 class="tag">{{ capitalizeFirstLetter(user.status.name) }}</h5> -->
+                                        <h5 class="tag">{{ user.status.name }}</h5>
+
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +124,9 @@
                     </div>
                     <div class="modal-footer" v-if="(reserveStage == 4) && (stageLoaded)">
                         <span class="selected-class">{{ clase.clase_type.clase_type }}</span>
-                        <span class="selected-date">{{ capitalizeFirstLetter(clase.date_human) }}</span>
+                        <!-- <span class="selected-date">{{ capitalizeFirstLetter(clase.date_human) }}</span> -->
+                        <span class="selected-date">{{ clase.date_human }}</span>
+
                         <span class="selected-hour">{{ zonedHour(clase.start) }}</span>
                         <button class="primary"
                                 @click="claseReserve()"
@@ -129,7 +135,7 @@
                         >
                             Reservar esta Clase
                         </button>
-                        <button class="btn" @click="goToUrl(clase.url)">Ver</button>
+                        <button class="btn" @click="goToUrl(clase.url)">Detalles</button>
                     </div>
 
                 </div>
@@ -140,6 +146,7 @@
 
 <script>
     import axios from 'axios';
+    import moment from 'moment';
     import { mapGetters, mapActions } from 'vuex';
 
     export default {
@@ -180,7 +187,7 @@
                     this.checkStage();
             },
             selectClase(clase) {
-                    // console.log(clase)
+                    console.log(clase)
                     this.selectedClase = clase
                     this.reserveStage++
                     this.checkStage();
@@ -195,7 +202,7 @@
                 case 1:
                     // console.log(this.reserveStage);
                     this.stageLoaded = false
-                    axios.get('/u/clases/types').then(
+                    axios.get('/clases/types').then(
                         response => {
                             // console.log(response.data)
                             this.types = response.data.types
@@ -205,31 +212,42 @@
                     break;
                 case 2:
                     this.stageLoaded = false
-                    axios.get('/u/clases/week/'+ this.selectedType.id).then(
+                    axios.get('/clases/week/'+ this.selectedType.id).then(
                         response => {
                             // console.log(response.data)
                             this.week = response.data.week
                     }).then(res => {
                         this.stageLoaded = true
+                    })
+                    .catch(e => {
+                    console.log(e);
                     });
                     break;
                 case 3:
                     this.stageLoaded = false
-                    axios.get(`/u/clases/blocks/${this.selectedDay.date}?clase_type_id=${this.selectedType.id}`).then(
+                    axios.get(`/clases/blocks/${this.selectedDay.date}?clase_type_id=${this.selectedType.id}`).then(
                         response => {
+                            // console.log(response.data.blocks)
                             this.blocks = response.data.blocks
                     }).then(res => {
                         this.stageLoaded = true
+                    })
+                    .catch(e => {
+                    console.log(e);
                     });
                     break;
                 case 4:
                     this.stageLoaded = false
-                    axios.get(`/u/clases/${this.selectedClase.id}/json`).then(
+                    // console.log(this.selectedClase.id)
+                    axios.get(`/clases/${this.selectedClase.id}/json`).then(
                         response => {
-                            // console.log(response.data.clase);
+                            console.log(this.selectedClase)
                             this.clase = response.data.clase
                     }).then(res => {
                         this.stageLoaded = true
+                    })
+                    .catch(e => {
+                        console.log(e);
                     });
 
                     break;
@@ -239,7 +257,7 @@
                 }
             },
             claseReserve() {
-                    axios.post('/u/clases/'+ this.selectedClase.id + '/reserve').then(
+                    axios.post('/clases/'+ this.selectedClase.id + '/reserve').then(
                         response => {
                             this.reserveStage = 1;
                             this.modalShow = false;
@@ -256,7 +274,9 @@
                                 })
                             });
                         }
-                    );
+                    ) .catch(e => {
+                        console.log(e);
+                    });
             },
             goToUrl(url) {
                 window.location.href = url;

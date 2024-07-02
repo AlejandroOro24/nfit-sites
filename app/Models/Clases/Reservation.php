@@ -2,9 +2,10 @@
 
 namespace App\Models\Clases;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Reservation extends Model
@@ -58,4 +59,14 @@ class Reservation extends Model
      */
     protected $appends = ['status_color', 'restatus'];
 
+
+      /**
+     *  Get the user that owns the Reservation
+     *
+     *  @return  \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
