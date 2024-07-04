@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .button {
+        @apply font-bold uppercase text-[11px] flex justify-center items-center py-2.5 border border-brand bg-brand rounded-md text-black px-4 hover:bg-brand-light transition;
+    }
+    .button-outline {
+        @apply bg-transparent text-brand hover:border-brand-light hover:text-brand-light
+    }
+
+    
+
+    .hero {
+        position: relative;
+    
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(23,26,31,0.9) 0%, rgba(23,26,31,0.8337928921568627) 89%, rgba(23,26,31,0.95) 94%, rgba(23,26,31,1) 100%);
+            z-index: 1;
+        }
+    
+        div {
+            position: relative;
+            z-index: 2;
+        }
+    }
+    
+}

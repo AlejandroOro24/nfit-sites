@@ -67,7 +67,7 @@ class User extends Authenticatable
             ->first();
     }
 
-    
+
      /**
      *  get past user resrevations.
      *
@@ -157,6 +157,20 @@ class User extends Authenticatable
                     ->where('clases.date', '<=', $date->copy()->endOfDay())
                     ->where('users.id', $this->id)
                     ->count('reservations.id');
+    }
+
+       /**
+     *  Return the booked reservation of the user for an specific class
+     *
+     *  @param   int               $claseId
+     *
+     *  @return  Reservation|null
+     */
+    public function hasReservationInThisClass($claseId)
+    {
+        return Reservation::where('clase_id', $claseId)
+                            ->where('user_id', $this->id)
+                            ->first();
     }
 
 }

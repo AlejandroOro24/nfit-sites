@@ -176,7 +176,7 @@
     import axios from 'axios';
     import { mapGetters, mapActions, mapMutations } from 'vuex';
     import ReservationStatus from '../../constants/reservations-statuses.js';
-
+    import moment from 'moment';
     export default {
         props: ['reservation_statuses', 'auth_timezone_difference'],
         data() {
@@ -205,7 +205,7 @@
             ...mapActions(['fetchClases', 'sendAlert', 'fetchNextClases', 'fetchPastClases', 'resetNextClases']),
             // metodo para confirmar la reserva
             confirm() {
-                axios.get('/u/clases/'+ this.selectedClase.clase_id  + '/confirm')
+                axios.get('/clases/'+ this.selectedClase.clase_id  + '/confirm')
                 .then(
                     response => {
                         this.resetNextClases();
@@ -218,14 +218,14 @@
                 )
                 .catch(
                     error => {
-                        console.log(error.response.data)
+                        console.log(error)
                         this.alert = error.response.data
                     }
                 );
             },
             // metodo para ceder la reserva
             dismiss() {
-                    axios.get('/u/clases/'+ this.selectedClase.clase_id + '/dismiss')
+                    axios.get('/clases/'+ this.selectedClase.clase_id + '/dismiss')
                     .then(
                         response => {
                             this.resetNextClases();
@@ -238,7 +238,7 @@
                     )
                     .catch(
                         error => {
-                            console.log(error.response.data)
+                            console.log(error)
                             this.alert = error.response.data
                         }
                     );

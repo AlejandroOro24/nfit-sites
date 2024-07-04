@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Clases\ReservationStatus;
+use Symfony\Component\HttpFoundation\Response;
 use App\Models\Messages\ReservationErrorMessage;
 
 class ClaseController extends Controller
@@ -49,8 +50,12 @@ class ClaseController extends Controller
         return view('UserWeb.clases.index', compact('auth_timezone_difference' , 'reservation_statuses' , 'sport_center' ,'safeUser' ));
     }
 
-    public function show(Clase $clase)
+    public function show($subdomain , Clase $clase)
     {
+        DataManager::initClientDB(
+            Client::where('sub_domain', $subdomain)->first()
+        );
+
         return view('user.clases.show', compact('clase'));
     }
 
@@ -353,5 +358,107 @@ class ClaseController extends Controller
         return response()->json($clases);
     }
 
+
+     /**
+     *  Confirm an specific clase
+     *
+     *  @param   Clase       $clase
+     *
+     *  @return  Clase|json
+     */
+    public function confirm(Request $request, $subdomain, Clase $clase)
+    {
+        DataManager::initClientDB(
+            Client::where('sub_domain', $subdomain)->first()
+        );  
+
+        $clase_id = $request->route()->parameters['id'] ;
+
+        $reservation = Auth::user()->hasReservationInThisClass($clase_id);
+
+        if (!$reservation) {
+            return response()->json([
+                'id' => $clase_id,
+                'error' => 'No puede confirmar una clase en la que no esta'
+            ], Response::HTTP_FORBIDDEN);
+        }
+        $reservation->update([
+            'reservation_status_id' => ReservationStatus::CONFIRMED,
+            'details'               => $this->addToDetails($reservation->details),
+            'by_user'               => Auth::id()
+        ]);
+
+        return response()->json(['clase' => $clase], 200);
+    }
+
+    public function addToDetails($details)
+    {
+        $timezone = Parameter::value('timezone') ?? Parameter::DEFAULT_TIMEZONE;
+
+        $collection = collect([]);
+
+        if (!is_null($details)) {
+            $collection->push($details);
+        }
+
+        $collection->push([
+            'auth_id'  => Auth::id(),
+            'date'     => now($timezone)->toISOString(),
+            'status'   => ReservationStatus::CONFIRMED,
+            'platform' => 'web app student'
+        ]);
+
+        return $collection;
+    }
+
+
+     /**
+     *  Undocumented function
+     *
+     *  @param   Clase  $clase
+     *  @return  void
+     */
+    public function dismiss(Request $request, $subdomain, Clase $clase)
+    {
+        DataManager::initClientDB(
+            Client::where('sub_domain', $subdomain)->first()
+        );
+
+        $clase_id = $request->route()->parameters['id'] ;
+        $clase_object = Clase::where('id', $clase_id)->first();
+        $claseDate = Carbon::parse($clase_object->date);
+
+        $reservation = Reservation::where('clase_id', $clase_id)->where('user_id', Auth::id())->first();
+        if ($reservation == null) {
+            return response()->json(['error' => 'No puede votar una clase en la que no esta'], 403);
+        }
+        // dd($clase_object);
+        $planUser = Auth::user()->plan_users()->where('start_date', '<=', $claseDate)->where('finish_date', '>=', $claseDate) ->whereIn('plan_status_id', [1, 3])->first();
+
+        if (!$planUser) {
+            return response()->json(['error' => 'no existe el plan'], 403);
+        }
+
+        if ($claseDate < toDay()->format('Y-m-d')) {
+            return response()->json(['error' => 'No puede votar una clase de un día anterior a hoy'], 403);
+        } elseif ($clase->date > toDay()->format('Y-m-d')) {
+            if ($reservation->delete()) {
+                $planUser->counter = $planUser->counter + 1;
+                $planUser->save();
+                return response()->json(['clase' => $clase], 200);
+            }
+        } else {
+            $class_hour = Carbon::parse($clase_object->start_at);
+            if ($class_hour->diffInMinutes(now()->format('H:i')) < 40) {
+                return response()->json(['error' => 'Ya no puede votar la clase'], 403);
+            } else {
+                if ($reservation->delete()) {
+                    $planUser->counter = $planUser->counter - 1;
+                    $planUser->save();
+                    return response()->json(['clase' => $clase], 200);
+                }
+            }
+        }
+    }
 
 }

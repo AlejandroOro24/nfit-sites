@@ -2,6 +2,7 @@
 
 namespace App\Models\Plans;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -115,6 +116,16 @@ class PlanUser extends Model
     public function cannotTakeClassInThisBlock($block)
     {
         return !in_array($this->plan_id, $block->getPlansIdAttribute()->toArray());
+    }
+
+      /**
+     *  Relationship to this Model
+     *
+     *  @return  User  Model
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

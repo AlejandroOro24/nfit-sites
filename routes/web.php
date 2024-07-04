@@ -42,6 +42,8 @@ Route::domain('{tenant}.'. ENV('APP_URL'))->group(function () {
     Route::get('/clases/blocks/{date}', [ClaseController::class, 'getBlocks']);
     Route::get('/clases/{id}/json', [ClaseController::class, 'getJson']);
     Route::post('/clases/{id}/reserve', [ClaseController::class, 'reserve']);
+    Route::get('/clases/{id}/confirm' , [ClaseController::class, 'confirm']);
+    Route::get('/clases/{id}/dismiss' , [ClaseController::class, 'dismiss']);
     Route::get('/clases/fetch', [ClaseController::class, 'paginatedClases']);
 
     //planes

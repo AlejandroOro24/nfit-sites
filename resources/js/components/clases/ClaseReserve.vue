@@ -187,7 +187,7 @@
                     this.checkStage();
             },
             selectClase(clase) {
-                    console.log(clase)
+                    // console.log(clase)
                     this.selectedClase = clase
                     this.reserveStage++
                     this.checkStage();
@@ -241,7 +241,7 @@
                     // console.log(this.selectedClase.id)
                     axios.get(`/clases/${this.selectedClase.id}/json`).then(
                         response => {
-                            console.log(this.selectedClase)
+                            // console.log(this.selectedClase)
                             this.clase = response.data.clase
                     }).then(res => {
                         this.stageLoaded = true
