@@ -170,13 +170,13 @@ export default new Vuex.Store({
     actions: {
         // Clases
         fetchClases: async function({commit}) {
-            const response = await axios.get('/u/clases/get')
+            const response = await axios.get('/clases/get')
             commit('setClases', response.data.clases)
         },
         fetchNextClases() {
             // console.log('into fetchNextClases');
             this.dispatch('fetch', {
-                url: '/u/clases/fetch',
+                url: '/clases/fetch',
                 options: {
                     reset: false, // if it's true reset the clases to the first page
                     method: 'paginatedNextClases',
@@ -209,7 +209,7 @@ export default new Vuex.Store({
             });
         },
         fetchClase: async function({commit}, claseId) {
-            const response = await axios.get('/u/clases/'+claseId+'/json')
+            const response = await axios.get('/clases/'+claseId+'/json')
             commit('setClase',response.data.clase)
         },
         // General
@@ -230,6 +230,9 @@ export default new Vuex.Store({
             let method = data.options.method;
             let methodPaginator = data.options.methodPaginator;
             // console.log(data.options);
+                        console.log(data.url);
+
+
             /**
              *  Get all the reservations statuses ids and convert to string to be append to the url
              *  If the url contains a specific page (search('page')) then merge ("&") with the status_reservation,
@@ -238,6 +241,7 @@ export default new Vuex.Store({
             let status_reservations = data.url.search('page') === -1 ?
                                         `?reservation_status_id=${data.options.status_reservation.join()}`:
                                         `&reservation_status_id=${data.options.status_reservation.join()}`;
+                                        console.log(status_reservations);
 
             axios.get(`${data.url}${status_reservations}`)
                 .then(response => {

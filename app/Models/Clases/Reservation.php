@@ -69,4 +69,31 @@ class Reservation extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+     /**
+     *  Get status Color by type
+     *
+     *  @return  string
+     */
+    public function getStatusColorAttribute()
+    {
+        return app(ReservationStatus::class)->getColorReservation($this->reservation_status_id);
+    }
+
+     /**
+     *  Get status Color by type
+     *
+     *  @return  array
+     */
+    public function getRestatusAttribute()
+    {
+        $rawStatus = [
+            '1' => ['id' => '1', 'name' => 'PENDIENTE', 'class' => 'reserved'],
+            '2' => ['id' => '2', 'name' => 'CONFIRMADA', 'class' => 'confirmed'],
+            '3' => ['id' => '3', 'name' => 'CONSUMIDA', 'class' => 'attended'],
+            '4' => ['id' => '4', 'name' => 'PERDIDA', 'class' => 'missed'],
+        ];
+
+        return $rawStatus[$this->reservation_status_id];
+    }
 }

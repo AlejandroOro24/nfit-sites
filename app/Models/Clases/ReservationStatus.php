@@ -43,4 +43,57 @@ class ReservationStatus extends Model
         ];
     }
 
+     /**
+     *  Return a Css type color by an specific Status Id
+     *
+     *  @param   integer   Id for a status
+     *
+     *  @return  string    A Reservation Status Color (CSS)
+     */
+    public function getColorReservation($reservationStatusId = null)
+    {
+        $reservation_status_colors = $this->listReservationStatusColors();
+
+        return $reservation_status_colors[$reservationStatusId] ?? '';
+    }
+
+     /**
+     *  Reservation relationship
+     *
+     *  @return  App\Models\Tenant\Clase\Reservation
+     */
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+      /**
+     *  Return all ReservationStatusColors
+     *
+     *  @return  array
+     */
+    public static function listReservationStatusColors()
+    {
+        return [
+            self::PENDING   => 'warning',
+            self::CONFIRMED => 'success',
+            self::CONSUMED  => 'info',
+            self::LOST      => 'danger',
+        ];
+    }
+
+
+      /**
+     *  Return a ReservationStatus by an specific Id
+     *
+     *  @param   integer   Id for a status
+     *
+     *  @return  string    A Reservation Status
+     */
+    public static function getReservationStatus($reservationStatusId)
+    {
+        $reservation_statuses = self::listReservationStatuses();
+
+        return $reservation_statuses[$reservationStatusId] ?? 'SIN ESTADO';
+    }
 }

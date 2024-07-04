@@ -2,6 +2,11 @@ import './bootstrap';
 import Alpine from 'alpinejs';
 import Vue from 'vue/dist/vue.esm.js';
 
+//public vue compoenents
+import PublicHeaderVue from './components/publicWeb/Header.vue';
+import PublicHeroVue from './components/publicWeb/Hero.vue';
+
+//public vue compoenents
 import SidebarVue from './components/layouts/Sidebar.vue';
 import AlertVue from './components/layouts/Alert.vue';
 import HeaderVue from './components/layouts/Header.vue';
@@ -19,6 +24,7 @@ import StagesVue from './components/wods/Stages.vue';
 import PlansIndexVue from './components/plans/PlansIndex.vue';
 import PlansBuyVue from './components/plans/PlansBuy.vue';
 import store from './store.js';
+
 
 window.Alpine = Alpine;
 Alpine.start();
@@ -41,6 +47,8 @@ Vue.component('wod-today', WodTodayVue);
 Vue.component('stages', StagesVue.default);
 Vue.component('plans-index', PlansIndexVue);
 Vue.component('plans-buy', PlansBuyVue.default);
+//public vue compoenents
+Vue.component('public-header', PublicHeaderVue);
 
 // Create a new Vue instance
 new Vue({
@@ -51,3 +59,13 @@ new Vue({
 //   render: h => h(HeaderVue),
 //   store,
 // }).$mount('#app_2');
+
+new Vue({
+  el: '#app_3',
+  components : {
+   'public-header': PublicHeaderVue,
+   'public-hero': PublicHeroVue,
+
+  },
+
+});
