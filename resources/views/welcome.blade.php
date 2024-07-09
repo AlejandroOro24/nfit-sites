@@ -25,6 +25,12 @@
     <div id="app_3">
         <public-header :sport_center='@json($sport_center)' ></public-header>
         <public-hero :sport_center='@json($sport_center)' ></public-hero>
+        <public-disciplines :disciplines='@json($clases_types)' :sport_center='@json($sport_center)' ></public-disciplines>
+        <public-reservations :sport_center='@json($sport_center)' :clases='@json($clase)' :clase_type='@json($clases_types)' ></public-reservations>
+        <public-plans :memberships='@json($plans)' ></public-plans>
+        <public-amenities></public-amenities>
+        <public-contact :contact='@json($sport_center)'></public-contact>
+        {{-- <public-mobile-app :asset="{{ asset('images') }}"></public-mobile-app> --}}
     </div>
 </body>
 </html>

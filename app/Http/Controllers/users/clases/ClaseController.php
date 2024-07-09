@@ -427,7 +427,7 @@ class ClaseController extends Controller
         $clase_id = $request->route()->parameters['id'] ;
         $clase_object = Clase::where('id', $clase_id)->first();
         $claseDate = Carbon::parse($clase_object->date);
-
+        
         $reservation = Reservation::where('clase_id', $clase_id)->where('user_id', Auth::id())->first();
         if ($reservation == null) {
             return response()->json(['error' => 'No puede votar una clase en la que no esta'], 403);

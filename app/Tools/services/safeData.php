@@ -13,4 +13,10 @@ trait safeData
         }
         return $attributes;
     }
+
+    public function cleanCollectionData($collection) {
+        return $collection->map(function ($model) {
+            return $this->cleanModelData($model);
+        });
+    }
 }

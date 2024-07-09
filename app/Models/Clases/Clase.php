@@ -132,9 +132,13 @@ class Clase extends Model
      */
     public function getDateTimeStartAttribute()
     {
-        return app(NfitTimeZone::class)->toAuthTz(
-            "{$this->date->format('Y-m-d')} {$this->start_at}"
-        )->format('Y-m-d H:i:s');
+            if (!$this->date) {
+                return '';
+            }
+            return app(NfitTimeZone::class)->toAuthTz(
+                "{$this->date->format('Y-m-d')} {$this->start_at}"
+            )->format('Y-m-d H:i:s');
+        
     }
 
       /**
@@ -144,6 +148,9 @@ class Clase extends Model
      */
     public function getDateTimeFinishAttribute()
     {
+        if (!$this->date) {
+            return '';
+        }
         return app(NfitTimeZone::class)->toAuthTz(
             "{$this->date->format('Y-m-d')} {$this->getOriginal('finish_at')}"
         )->format('Y-m-d H:i:s');
@@ -214,6 +221,9 @@ class Clase extends Model
      */
     public function getShortDateAttribute()
     {
+        if (!$this->date) {
+            return '';
+        }
         return $this->date->format('d/m/y');
     }
 
@@ -225,6 +235,9 @@ class Clase extends Model
      */
     public function getHumanDateAttribute()
     {
+        if (!$this->date) {
+            return '';
+        }
         return $this->date->translatedFormat('d \d\e F \d\e Y');
         // return NOstrftime('%A %d de %B', $this->date->timestamp);
     }

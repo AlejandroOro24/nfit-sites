@@ -6,13 +6,12 @@
 @layer components {
     .button {
         @apply font-bold uppercase text-[11px] flex justify-center items-center py-2.5 border border-brand bg-brand rounded-md text-black px-4 hover:bg-brand-light transition;
-    }
-    .button-outline {
-        @apply bg-transparent text-brand hover:border-brand-light hover:text-brand-light
-    }
-
     
-
+            &.b-outline {
+            @apply bg-transparent text-brand hover:border-brand-light hover:bg-brand hover:text-black transition
+            }
+    }
+    
     .hero {
         position: relative;
     
@@ -31,5 +30,209 @@
             z-index: 2;
         }
     }
+
+    .slider-wrapper {
+        position: relative;
+        overflow: hidden;
     
+       
+        .slide-arrow {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 100%;
+            border: none;
+            width: 2rem;
+            font-size: 3rem;
+            padding: 0;
+            cursor: pointer;
+            @apply text-brand transition duration-200;
+    
+            &:hover {
+                @apply text-white;
+            }
+        }
+    
+        .slide-arrow-prev {
+            left: 0;
+            padding-left: 0.25rem;
+            background: linear-gradient(-90deg, rgba(23, 26, 31, 0) 0%,rgba(23, 26, 31, 1) 100%);
+        }
+    
+        .slide-arrow-next {
+            right: 0;
+            padding-left: 0.75rem;
+            background: linear-gradient(90deg, rgba(23, 26, 31, 0) 0%,rgba(23, 26, 31, 1) 100%);
+        }
+        .membership-slide-arrow-prev{
+            left: 0;
+            padding-left: 0.75rem;
+            background: linear-gradient(-90deg, rgba(33, 37, 42, 0) 0%,rgba(33, 37, 42, 1) 100%);
+        }
+        .membership-slide-arrow-next{
+            right: 0;
+            padding-left: 0.75rem;
+            background: linear-gradient(90deg, rgba(33, 37, 42, 0) 0%,rgba(33, 37, 42, 1) 100%);
+        }
+        .disciplines-slides-container{
+            /* height: calc(100vh - 2rem) */
+            height: 370px;
+            width: 100%;
+            display: flex;
+            scroll-behavior: smooth;
+            list-style: none;
+            margin: 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            @apply px-6;
+        
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .disciplines-slide{
+                /* Cambiar width y flex property para agregar mas slides por pantalla */
+                    width: 100%;
+                    height: 100%;
+                    flex: 0 0 100%;
+                    @apply px-2 box-border;
+            }
+            .disciplines-slide-content{
+                @apply bg-midBlack h-full flex items-end rounded-lg;
+    
+                div{
+                        @apply bg-black/60 px-4 pt-4 pb-6;
+                    }
+        }
+            
+        }
+        .memberships-slides-container{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            scroll-behavior: smooth;
+            list-style: none;
+            margin: 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            @apply px-6;
+        }
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        .memberships-slide{
+            width: 100%;
+            height: 100%;
+            flex: 0 0 100%;
+            @apply box-border;
+            .features{
+                @apply flex flex-wrap gap-1.5 pt-4
+            }
+            .price{
+                @apply mt-5 mb-4;
+                p{
+                    @apply text-2xl font-bold tracking-tighter;
+                }
+                span{
+                    @apply text-[11px] tracking-tight font-normal text-white/70;
+                }
+            }
+            
+        }
+    }
+    
+        @media (min-width: 760px) {
+            .slider-wrapper .slide-arrow {
+                width: 2.2rem;
+            }
+            .slider-wrapper .slide-arrow-prev {
+                padding-left: 0.5rem;
+            }
+            .disciplines-slides-container {
+                width: 100%;
+                margin: auto;
+            }
+            .disciplines-slides-container .disciplines-slide {
+                width: 50%;
+                flex: 0 0 50%;
+            }
+            .memberships-slides-container .memberships-slide {
+                width: 50%;
+                flex: 0 0 50%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .slider-wrapper {
+
+            
+                .slide-arrow {
+                    width: 2.5rem;
+                }
+                .slide-arrow-prev {
+                    padding-left: 1rem;
+                }
+                .membership-slide-arrow-prev {
+                    padding-left: 1.1rem;
+                }
+                .disciplines-slides-container {
+                        width: 98%;
+                        margin: auto;
+                        .disciplines-slide {
+                        width: 33.3%;
+                        flex: 0 0 33.3%;
+                    }
+                .memberships-slides-container {
+                        width: 97%;
+                        margin: auto;
+                    .memberships-slide {
+                        width: 33.3%;
+                        flex: 0 0 33.3%;
+                    }
+                    }
+                }
+        }}
+
+        @media (min-width: 1280px) {
+            .slider-wrapper .slide-arrow {
+                width: 3rem;
+            }
+            .disciplines-slides-container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+                width: 100%;
+            }
+            .memberships-slides-container {
+                padding-left: 3.5rem;
+                padding-right: 3.5rem;
+                width: 100%;
+            }
+            .memberships-slides-container .memberships-slide {
+                width: 25%;
+                flex: 0 0 25%;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .slider-wrapper .slide-arrow {
+                width: 3rem;
+            }
+            .slider-wrapper .slide-arrow-prev {
+                padding-left: 1.5vw;
+            }
+            .slider-wrapper .slide-arrow-next {
+                padding-right: 1.5vw;
+            }
+            .disciplines-slides-container {
+                padding-left: 4.5vw;
+                padding-right: 4.5vw;
+            }
+            .memberships-slides-container {
+                padding-left: 4.5rem;
+                padding-right: 4.5rem;
+            }
+            
+        }
 }

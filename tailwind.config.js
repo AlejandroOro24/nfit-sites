@@ -11,6 +11,7 @@ export default {
 
     ],
 
+
     theme: {
         colors: {
             brand: {
@@ -20,6 +21,8 @@ export default {
             black: '#171A1F',
             midBlack: '#21252A',
             white: '#FFFFFF',
+            transparent: 'rgba(255, 255, 255, 0)', // Definir tu color aquí
+
         },
         extend: {
             fontFamily: {

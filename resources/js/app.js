@@ -5,6 +5,12 @@ import Vue from 'vue/dist/vue.esm.js';
 //public vue compoenents
 import PublicHeaderVue from './components/publicWeb/Header.vue';
 import PublicHeroVue from './components/publicWeb/Hero.vue';
+import PublicDisciplinesVue from './components/publicWeb/Disciplines.vue';
+import PublicReservationsVue from './components/publicWeb/TestReservation/Reservation.vue';
+import PublicPlansVue from './components/publicWeb/Memberships/Plans.vue';
+import PublicAmenitiesVue from './components/publicWeb/Memberships/Amenities.vue';
+import PublicContactVue from './components/publicWeb/Contact.vue';
+import PublicMobileAppVue from './components/publicWeb/MobileApp.vue';
 
 //public vue compoenents
 import SidebarVue from './components/layouts/Sidebar.vue';
@@ -29,6 +35,8 @@ import store from './store.js';
 window.Alpine = Alpine;
 Alpine.start();
 window.Vue = Vue;
+Vue.config.productionTip = false;
+
 
 // Define your components
 Vue.component('sidebar-menu', SidebarVue);
@@ -65,6 +73,12 @@ new Vue({
   components : {
    'public-header': PublicHeaderVue,
    'public-hero': PublicHeroVue,
+   'public-disciplines': PublicDisciplinesVue,
+   'public-reservations': PublicReservationsVue,
+   'public-plans': PublicPlansVue,
+   'public-amenities': PublicAmenitiesVue,
+   'public-contact': PublicContactVue,
+   'public-mobile-app': PublicMobileAppVue,
 
   },
 
