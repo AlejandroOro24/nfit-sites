@@ -11,6 +11,7 @@ import PublicPlansVue from './components/publicWeb/Memberships/Plans.vue';
 import PublicAmenitiesVue from './components/publicWeb/Memberships/Amenities.vue';
 import PublicContactVue from './components/publicWeb/Contact.vue';
 import PublicMobileAppVue from './components/publicWeb/MobileApp.vue';
+import PublicFooterVue from './components/publicWeb/Footer.vue';
 
 //public vue compoenents
 import SidebarVue from './components/layouts/Sidebar.vue';
@@ -79,6 +80,7 @@ new Vue({
    'public-amenities': PublicAmenitiesVue,
    'public-contact': PublicContactVue,
    'public-mobile-app': PublicMobileAppVue,
+   'public-footer': PublicFooterVue,
 
   },
 

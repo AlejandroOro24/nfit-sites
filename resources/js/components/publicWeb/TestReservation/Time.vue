@@ -2,7 +2,7 @@
   <div class="relative">
     <button
       @click="toggleDropdown"
-      :class="['relative w-full rounded-lg bg-mid-black py-3 pl-4 pr-10 text-left shadow-md focus:outline-none sm:text-sm border border-white/10', { 'text-white/50 cursor-default': !actived, 'text-white cursor-pointer': actived }]"
+      :class="['relative w-full rounded-lg bg-midBlack py-3 pl-4 pr-10 text-left shadow-md focus:outline-none sm:text-sm border border-white/10', { 'text-white/50 cursor-default': !actived, 'text-white cursor-pointer': actived }]"
       :disabled="!actived"
     >
       <span class="block truncate text-sm">{{ selected }}</span>
@@ -23,7 +23,7 @@
       </span>
     </button>
       <div v-if="isOpen && !isDisabled" class="absolute z-10 mt-1 w-full rounded-md bg-mid-black py-1 text-base text-white shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-        <ul class="max-h-60 overflow-auto">
+        <ul class="max-h-60 overflow-auto bg-midBlack">
           <li
             v-for="(time, index) in times"
             :key="index"

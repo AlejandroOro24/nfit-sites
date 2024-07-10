@@ -1,7 +1,7 @@
 <template>
     <div class="bg-black">
       <div class="px-1 lg:px-3 pb-10 lg:pb-12 2xl:px-0 2xl:mx-auto 2xl:max-w-[1440px] 3xl:max-w-[1580px] 4xl:max-w-[1780px]">
-        <h2 class="text-2xl lg:text-3xl tracking-tight font-bold text-center mb-10">
+        <h2 class="text-2xl lg:text-3xl tracking-tight font-bold text-center text-white mb-10">
           ¿Qué hacemos en {{ sport_center.box_name }}?
         </h2>
         <section class="slider-wrapper overflow-hidden relative">
@@ -36,12 +36,12 @@
               >
                 <div>
                   <header class="flex justify-between items-center mb-2">
-                    <p class="font-bold tracking-tight text-lg">
+                    <p class="font-bold tracking-tight text-lg text-white">
                       {{ discipline.clase_type }}
                     </p>
-                    <img class="w-8 h-8" :src="discipline.icon" alt="" />
+                    <img class="w-8 h-8 text-white" :src="discipline.icon" alt="" />
                   </header>
-                  <p class="text-[13px] w-11/12 opacity-80">
+                  <p class="text-[13px] text-white w-11/12 opacity-80">
                     "Se sueño entusiasmado más para menos jardineros, a del datan una a segmento, más para menos jardineros, a del datan una a segmento. (max ch.)"
                   </p>
                 </div>

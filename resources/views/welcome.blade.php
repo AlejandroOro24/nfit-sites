@@ -22,7 +22,7 @@
     </div>
     </header> --}}
 
-    <div id="app_3">
+    <div id="app_3" class="m-auto">
         <public-header :sport_center='@json($sport_center)' ></public-header>
         <public-hero :sport_center='@json($sport_center)' ></public-hero>
         <public-disciplines :disciplines='@json($clases_types)' :sport_center='@json($sport_center)' ></public-disciplines>
@@ -30,7 +30,8 @@
         <public-plans :memberships='@json($plans)' ></public-plans>
         <public-amenities></public-amenities>
         <public-contact :contact='@json($sport_center)'></public-contact>
-        {{-- <public-mobile-app :asset="{{ asset('images') }}"></public-mobile-app> --}}
+        <public-mobile-app></public-mobile-app>
+        <public-footer :sport_center='@json($sport_center)' ></public-footer>
     </div>
 </body>
 </html>

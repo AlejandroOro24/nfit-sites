@@ -9,11 +9,11 @@
             alt="banner"
             class="h-20 w-20 rounded-full m-auto mb-5 md:mb-6"
           />
-          <h1 class="font-bold text-2.5xl md:text-3xl lg:text-4xl tracking-tight mx-auto mb-5 example max-w-[22ch] leading-snug lg:leading-tight">
-              {{sport_center.box_first_sentence}}
+          <h1 class="font-bold text-2.5xl text-white md:text-3xl lg:text-4xl tracking-tight mx-auto mb-5 example max-w-[22ch] leading-snug lg:leading-tight">
+              {{sport_center.first_sentence}}
           </h1>
           <p class="text-sm text-white/70 tracking-tight mb-6 inline-block w-11/12 max-w-[46ch] md:leading-normal">
-              {{sport_center.box_second_sentence}}
+              {{sport_center.secondary_sentence}}
           </p>
           <div class="flex justify-center gap-2.5">
             <a href="#" class="button">

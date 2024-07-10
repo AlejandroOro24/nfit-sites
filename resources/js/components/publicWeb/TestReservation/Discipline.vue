@@ -1,68 +1,9 @@
-<!-- <template>
-    <div>
-      <Listbox v-model="selectedOption" @change="handleSelectedOption">
-        <div class="relative">
-          <ListboxButton :class="['relative w-full rounded-lg  bg-mid-black py-3 pl-4 pr-10 text-left shadow-md focus:outline-none sm:text-sm border border-white/10']">
-            <span class="block truncate text-sm">{{ selectedOption.clase_type }}</span>
-            <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-              <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </span>
-          </ListboxButton>
-          <Transition name="ease-in" mode="out-in">
-            <ListboxOptions class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-mid-black py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-              <ListboxOption v-for="(discipline, index) in disciplines" :key="index" :value="discipline">
-                <span :class="['block truncate text-sm', { 'font-medium': selected, 'font-normal': !selected }]">
-                  {{ discipline.clase_type }}
-                </span>
-                <CheckIcon v-if="selected" class="h-5 w-5" aria-hidden="true" />
-              </ListboxOption>
-            </ListboxOptions>
-          </Transition>
-        </div>
-      </Listbox>
-    </div>
-  </template>
-  
-  <script>
-  import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
-  import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/solid'
-  
-  export default {
-    name: 'Discipline',
-    components: {
-      Listbox,
-      ListboxButton,
-      ListboxOptions,
-      ListboxOption,
-      CheckIcon,
-      ChevronUpDownIcon
-    },
-    props: {
-      claseTypeName: Array
-    },
-    data() {
-      return {
-        selectedOption: {
-          id: '0',
-          clase_type: "Selecciona una disciplina"
-        },
-        disciplines: this.claseTypeName
-      }
-    },
-    methods: {
-      handleSelectedOption(value) {
-        this.selectedOption = value
-        this.$emit('activeButton', true)
-        this.$emit('updateDiscipline', value)
-      }
-    }
-  }
-  </script> -->
+
   <template>
     <div class="relative">
       <button
         @click="toggleDropdown"
-        class="relative w-full rounded-lg bg-mid-black py-3 pl-4 pr-10 text-left shadow-md focus:outline-none sm:text-sm border border-white/10"
+        class="relative w-full rounded-lg bg-midBlack py-3 pl-4 pr-10 text-left shadow-md focus:outline-none sm:text-sm border border-white/10"
       >
         <span class="block truncate text-sm text-white">{{ selectedOption.clase_type }}</span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -82,7 +23,7 @@
         </span>
       </button>
       <div v-if="isOpen" class="absolute z-10 mt-1 w-full rounded-md bg-mid-black py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-        <ul class="max-h-60 overflow-auto">
+        <ul class="max-h-60 overflow-auto bg-midBlack">
           <li
             v-for="(discipline, index) in disciplines"
             :key="index"

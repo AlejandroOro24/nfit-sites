@@ -2,7 +2,7 @@
     <div :style="{ backgroundImage: `url(${sport_center.box_banner})` }" class="bg-center bg-cover bg-no-repeat relative after:content-[''] after:absolute after:z-10 after:inset-0 after:w-full after:h-full after:bg-black/90 after:block">
       <div class="relative z-20 xl:flex xl:flex-wrap xl:items-end xl:justify-between py-12 md:py-16 xl:py-20 px-6 md:px-10 lg:px-12 xl:px-16 1.5xl:px-[6vw] 2xl:px-0 2xl:mx-auto 2xl:max-w-7xl 3xl:max-w-8xl 4xl:max-w-9xl">
         <header class="mx-auto lg:mx-0 mb-7 w-11/12 md:w-full">
-          <h2 class="text-2xl md:text-3xl tracking-tight font-bold text-center lg:text-left mb-2">
+          <h2 class="text-2xl text-white md:text-3xl tracking-tight font-bold text-center lg:text-left mb-2">
             <span class="text-brand">Reserva gratis</span> esta semana
           </h2>
           <p class="text-[13px] text-white/80 text-center lg:text-left tracking-tight">
@@ -31,7 +31,7 @@
 
           </div>
 
-          <button :class="{ 'disabled': !activeButton }" class="button mt-0.5 w-full !px-5 md:inline-block md:w-auto md:mx-auto lg:mx-0" @click="goToReservation">
+          <button :class="{ 'disabled': !activeButton  }" class="button mt-0.5 w-full !px-5 md:inline-block md:w-auto md:mx-auto lg:mx-0" @click="goToReservation">
             <span class="whitespace-nowrap">Reserva tu hora</span>
           </button>
           
@@ -39,7 +39,7 @@
 
         <div class="flex gap-1 items-center justify-center lg:justify-start mt-7 md:mt-10 lg:mt-7 lg:pl-0.5 -space- xl:3/12 xl:mt-0 xl:mb-0.5">
           <p class="text-[10px] text-white/60 tracking-tight">Con la tecnología de</p>
-          <img :src="`${asset}/nfit-logo.png`" alt="NFIT" class="h-[14px]" />
+          <img :src="`${logo_img}`" alt="NFIT" class="h-[14px]" />
         </div>
       </div>
     </div>
@@ -59,7 +59,6 @@
     },
     props: {
      sport_center: {},
-      asset: String,
       clase_type: {},
       clases: {}
     },
@@ -70,7 +69,8 @@
         activeButton: false,
         date: '',
         time: '',
-        discipline: { id: '', clase_type: '' }
+        discipline: { id: '', clase_type: '' },
+        logo_img: window.location.origin +'/img/nfit-logo.png',
       }
     },
     computed: {

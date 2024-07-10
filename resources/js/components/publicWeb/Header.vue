@@ -9,7 +9,7 @@
           <!-- Branding -->
           <a href="/" class="flex items-center gap-2">
             <img :src="sport_center.box_image" alt="Logo" class="w-6 h-6 rounded-full" />
-            <h2 class="font-bold text-lg tracking-tight">{{ sport_center.box_name }}</h2>
+            <h2 class="font-bold text-lg text-white tracking-tight">{{ sport_center.box_name }}</h2>
           </a>
           <!-- RRSS -->
           <div
@@ -74,9 +74,9 @@
         >
           <!-- Menu -->
           <nav class="flex md:inline-flex flex-col md:flex-row font-semibold text-[15px] gap-3 md:gap-7 lg:gap-9 xl:gap-12 tracking-tight">
-            <a href="#" class="hover:text-white/70 transition cursor-pointer" @click="setOpened(false)">Inicio</a>
-            <a class="hover:text-white/70 transition cursor-pointer" @click="scrollToSection('section-memberships')">Planes</a>
-            <a class="hover:text-white/70 transition cursor-pointer" @click="scrollToSection('section-contact')">Ubicación</a>
+            <a href="#" class="text-white hover:text-white/70 transition cursor-pointer" @click="setOpened(false)">Inicio</a>
+            <a class="text-white hover:text-white/70 transition cursor-pointer" @click="scrollToSection('section-memberships')">Planes</a>
+            <a class="text-white hover:text-white/70 transition cursor-pointer" @click="scrollToSection('section-contact')">Ubicación</a>
           </nav>
           <!-- Access button -->
           <a

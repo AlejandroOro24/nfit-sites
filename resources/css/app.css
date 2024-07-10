@@ -2,16 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    :root {
+        /* variables de branding*/
+         
+    --brand-color:#2D47EB ;
+    --brand-light-color:#2D47EBE6;
+    }
+}
 
 @layer components {
     .button {
         @apply font-bold uppercase text-[11px] flex justify-center items-center py-2.5 border border-brand bg-brand rounded-md text-black px-4 hover:bg-brand-light transition;
+            
+        &:after {
+            content: '→';
+            @apply ml-1;
+        }
     
             &.b-outline {
             @apply bg-transparent text-brand hover:border-brand-light hover:bg-brand hover:text-black transition
             }
+
+            &.disabled {
+                @apply bg-gray text-white/30 border-gray cursor-default;
+            }
     }
-    
+    .icon {
+        path {
+            @apply fill-white;
+        }
+        &:hover {
+            path {
+                @apply fill-brand;
+            }
+        }
+    }
     .hero {
         position: relative;
     
@@ -133,7 +159,7 @@
             .price{
                 @apply mt-5 mb-4;
                 p{
-                    @apply text-2xl font-bold tracking-tighter;
+                    @apply text-2xl font-bold tracking-tighter text-white;
                 }
                 span{
                     @apply text-[11px] tracking-tight font-normal text-white/70;
@@ -235,4 +261,5 @@
             }
             
         }
+        
 }
