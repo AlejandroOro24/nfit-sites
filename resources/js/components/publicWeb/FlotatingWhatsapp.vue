@@ -30,6 +30,7 @@ import { setLocalStorage, getLocalStorage } from '@/utils/localStorageWithExpiry
       closeFloating() {
         this.floatingStatus = true;
         setLocalStorage('floating', this.floatingStatus, 5000);
+        
     }
     },
     watch: {
