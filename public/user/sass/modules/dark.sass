@@ -1,0 +1,85 @@
+// Dark Theme
+main.dark
+    background: $black
+    color: $whiteCream
+    min-height: 101vh
+    .page-header
+        &::before
+            // background-color: $darkBlack
+            background-color: $black
+            background-color: rgba($darkBlack, 0.5)
+
+@media (min-width: 900px)
+    main.dark
+        .headbar
+            .sport-center
+                .avatar-center
+                    // background-color: $seaGreen
+            .notifications
+                .alerts
+                    span[class^="icon-"]
+                        color: $gray
+                        &:hover,
+                        &:focus
+                            color: $darkGray
+                            // color: $ultraDarkGray
+                            // color: $darkBlack
+                    .notification-wrapper
+                        background: $darkBlack
+                        &::before
+                            border: 10px solid transparent
+                            border-bottom-color: $darkBlack
+                        .item
+                            border-top: solid 1px $black
+                            color: $lightGray
+                            span[class^="icon-"]
+                                color: $lightGray
+                            // .img
+                            //     background: $seaGreen
+                            &:first-child
+                                border-top: solid 1px transparent
+                            &:hover,
+                            &:focus
+                                background-color: $black
+                        .item-button
+                            background-color: $ultraLightBlack
+                            color: $lightGray
+                            &:hover, 
+                            &:focus
+                                background-color: rgba($ultraLightBlack, 0.4)
+                            span
+                                color: $lightGray
+                .profile-avatar
+                    .avatar-icon
+                        background-color: $seaGreen
+                    .profile-wrapper
+                        background: $darkBlack
+                        &::before
+                            border: 10px solid transparent
+                            border-bottom-color: $darkBlack
+
+// @media (min-width: 1200px)
+//     main.dark
+//         .headbar
+//             .sport-center
+//                 .avatar-center
+//             .notifications
+//                 .alerts
+//                     span[class^="icon-"]
+//                         &:hover,
+//                         &:focus
+//                     .notification-wrapper
+//                         &::before
+//                         .item
+//                             span[class^="icon-"]
+//                             &:first-child
+//                             &:hover,
+//                             &:focus
+//                         .item-button
+//                             &:hover, 
+//                             &:focus
+//                             span
+//                 .profile-avatar
+//                     .avatar-icon
+//                     .profile-wrapper
+//                         &::before
