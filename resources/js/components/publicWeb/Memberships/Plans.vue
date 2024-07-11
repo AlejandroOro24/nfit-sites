@@ -136,7 +136,7 @@
         });
       },
       goToReservation(id) {
-        const reservationRoute = `http://alejandro.nfit-webapp-react.test/registerBuy/${id}`;
+        const reservationRoute = `/registerBuy/${id}`;
         window.location.href = reservationRoute;
       },
       periodSuffix(period) {

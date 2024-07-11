@@ -24,6 +24,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function create($subdomain)
     {
+        DataManager::initClientDB(
+            Client::where('sub_domain', $subdomain)->first()
+        );
         $tenantName = $subdomain;
         return view('auth.login' , compact('tenantName'));
     }

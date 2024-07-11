@@ -36,10 +36,7 @@
   
   export default {
     props: {
-      contact: {
-        type: {},
-        required: true
-      }
+      contact: {}
     },
     computed: {
       mapAddress() {

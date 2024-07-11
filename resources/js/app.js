@@ -1,6 +1,8 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
 import Vue from 'vue/dist/vue.esm.js';
+import VueLocalStorage from 'vue-local-storage';
+
 
 //public vue compoenents
 import PublicHeaderVue from './components/publicWeb/Header.vue';
@@ -12,6 +14,7 @@ import PublicAmenitiesVue from './components/publicWeb/Memberships/Amenities.vue
 import PublicContactVue from './components/publicWeb/Contact.vue';
 import PublicMobileAppVue from './components/publicWeb/MobileApp.vue';
 import PublicFooterVue from './components/publicWeb/Footer.vue';
+import PublicFlotatingWhatsAppVue from './components/publicWeb/FlotatingWhatsApp.vue';
 
 //public vue compoenents
 import SidebarVue from './components/layouts/Sidebar.vue';
@@ -37,6 +40,7 @@ window.Alpine = Alpine;
 Alpine.start();
 window.Vue = Vue;
 Vue.config.productionTip = false;
+Vue.use(VueLocalStorage);
 
 
 // Define your components
@@ -81,6 +85,7 @@ new Vue({
    'public-contact': PublicContactVue,
    'public-mobile-app': PublicMobileAppVue,
    'public-footer': PublicFooterVue,
+   'public-floating-whatsapp': PublicFlotatingWhatsAppVue,
 
   },
 

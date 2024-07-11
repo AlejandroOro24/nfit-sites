@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Plans\PlanController;
 use App\Http\Controllers\Videos\VideoController;
+use App\Http\Controllers\publicWeb\TrialController;
 use App\Http\Controllers\users\DashboardController;
 use App\Http\Controllers\users\clases\ClaseController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -29,9 +30,16 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
 Route::domain('{tenant}.'. ENV('APP_URL'))->group(function () {
+
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
+    Route::get('/trial/{id}', [TrialController::class, 'TestReservationRegister'])->name('registerTrial.index');
+    Route::post('/trial/register/{clase}', [TrialController::class, 'registerTrial'])->name('registerTrial.store');
+    Route::get('/trial/ready/{clase}', [TrialController::class, 'reservationReady'])->name('registerTrial.ready');
+
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
