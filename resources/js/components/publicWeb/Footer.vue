@@ -15,6 +15,7 @@
               :href="`mailto:${sport_center.box_email}`">{{ sport_center.box_email }}</a>
               <br />
               <a v-if="sport_center.box_whatsapp"
+                  class="text-white"
                  :href="`https://wa.me/${sport_center.box_whatsapp}?text=hola!`"
                  target="_blank"
               >

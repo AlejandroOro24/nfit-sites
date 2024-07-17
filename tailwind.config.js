@@ -24,10 +24,15 @@ export default {
             transparent: 'rgba(255, 255, 255, 0)',
             nfit: {
                 DEFAULT: '#01FFC2',
-                light: '#01FFC2E6',
+                light: '#01FFC240',
+                disabled: '#01FFC280'
             },
             gray: '#1f2937',
-
+            caution:{
+                DEFAULT: '#EC0B43',
+                light: '#EC0B4340',
+                disabled: '#EC0B4380'
+            },
         },
         extend: {
             fontSize: {

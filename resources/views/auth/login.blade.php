@@ -80,7 +80,7 @@
                     <img src="{{ App\Models\Parameter::value('box_image')}}" alt="Logo Centro deportivo" class="w-20 lg:w-32  mx-auto shadow-login-logo rounded-full">
                 </a>
             </header>
-            <div class=" py-8 px-7 w-full">
+            <div class="border border-[#01FFC2] rounded-lg  py-8 px-7 w-full">
                 <div class="mx-auto max-w-sm">
                     <h2 class="font-bold text-xl tracking-tight text-center mb-7">Acceso</h2>
                     <form action="{{ route('login' , ['tenant' => $tenantName] ) }}" method="post" class="form" id="formLogin">

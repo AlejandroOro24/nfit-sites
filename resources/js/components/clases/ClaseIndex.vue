@@ -37,29 +37,32 @@
                                 <td class="tag " :class="reservation_statuses[clase.reservation_status_id].class">
                                     {{ reservation_statuses[clase.reservation_status_id].status }}
                                 </td>
-                                <td>
-                                    <button class="btn primary small"
+                                <td >
+                                    <div class="">
+                                    
+                                    <button class=" px-2.5 py-2 mx-2 bg-nfit text-xs leading-3 font-bold hover:bg-nfit-light disabled:bg-nfit-disabled rounded"
                                             :class="{ disabled: clase.reservation_status_id != ReservationStatus.PENDIENTE }"
                                             :disabled="clase.reservation_status_id != ReservationStatus.PENDIENTE"
                                             v-on:click="claseConfirmOpen(clase)"
                                     >
                                         Confirmar
                                     </button>
-                                    <a class="btn small" :href="`/u/clases/${clase.clase_id}`">Ver</a>
-                                    <button class="btn caution small"
+                                    <a class=" px-3 py-2 text-xs leading-3 font-bold bg-black text-white rounded" :href="`/u/clases/${clase.clase_id}`">Ver</a>
+                                    <button class="px-2.5 py-2 mx-2 bg-caution hover:bg-caution-light text-xs leading-3 font-bold text-white disabled:bg-caution-disabled rounded"
                                             :class="{ disabled: clase.reservation_status_id != ReservationStatus.PENDIENTE }"
                                             :disabled="clase.reservation_status_id != ReservationStatus.PENDIENTE"
                                             @click="claseDismissOpen(clase)"
                                     >
                                         Ceder
                                     </button>
-                                    <a class="btn caution small"
+                                    <a class="px-3 py-2 mx-2"
                                         v-if="zoomLinkIsVisible(clase)"
                                         :href="clase.zoom_link"
                                         target="_blank"
                                     >
                                         Ir a Videollamada
                                     </a>
+                                </div>
                                 </td>
                             </tr>
                         </tbody>

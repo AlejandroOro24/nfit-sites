@@ -72,7 +72,6 @@
     },
     props: {
       memberships: {},
-     
     },
     data() {
       return {
@@ -136,7 +135,9 @@
         });
       },
       goToReservation(id) {
-        const reservationRoute = `/registerBuy/${id}`;
+        const reservationRoute =  window.routes.registerBuy
+        .replace(':id', id);
+
         window.location.href = reservationRoute;
       },
       periodSuffix(period) {

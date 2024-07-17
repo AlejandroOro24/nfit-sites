@@ -7,7 +7,7 @@
             </div>
             <!-- <button class="primary" @click="modalShow = !modalShow">Reservar Clase</button> -->
             <div class="buttons col-18 col-12-m">
-                <button class="primary" @click="modalShow = !modalShow">Reservar Clase</button>
+                <button class="px-2.5 py-2.5 mx-2 bg-nfit text-xs leading-3 font-bold hover:bg-nfit-light disabled:bg-nfit-disabled rounded" @click="modalShow = !modalShow">Reservar Clase</button>
             </div>
                 <!-- <clase-reserve></clase-reserve>   -->
         </div>
@@ -30,7 +30,7 @@
 
                             <div class="options classOptions">
                                 <div class="option" v-for="type of types" :key="type.id" @click="selectType(type)">
-                                    <img v-bind:src="type.icon">
+                                    <img class="ml-3" v-bind:src="type.icon">
                                     <h5 class="class-name">{{ type.clase_type }}</h5>
                                 </div>
                             </div>

@@ -29,7 +29,7 @@
                     <img src="{{$sport_center->box_image}}" alt="Logo Centro deportivo" class="w-20 lg:w-32 mx-auto shadow-login-logo rounded-full">
                 </a>
             </header>
-            <div class=" py-8 lg:py-12 px-7 lg:px-12 tracking-tight">
+            <div class="border border-[#01FFC2] rounded-lg py-8 lg:py-12 px-7 lg:px-12 tracking-tight">
                 <div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 lg:items-center">
                         <!-- Location -->

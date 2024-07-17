@@ -27,6 +27,8 @@
     <meta name="msapplication-square150x150logo" content="{{ asset('/web/favicons/mstile-150x150.png') }}" />
     <meta name="msapplication-wide310x150logo" content="{{ asset('/web/favicons/mstile-310x150.png') }}" />
     <meta name="msapplication-square310x310logo" content="{{ asset('/web/favicons/mstile-310x310.png') }}" />
+    {{-- <link rel="stylesheet" href="{{asset('css/userApp.css?v=2')}}"> --}}
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>

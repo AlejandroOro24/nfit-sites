@@ -17,9 +17,9 @@
         @endif
     </div>
 
-    <div class="grid dashboard-content">
+    <div class="flex flex-row gap-5">
         @if($lastVideo && auth()->user()->canSeeThisVideo($lastVideo))
-        <div class="col-18 col-18-m col-7-xl">
+        <div class="w-1/3">
             <!-- Ultimo Video -->
             <div class="last-video-dashboard section">
                 <div class="section-header">
@@ -51,7 +51,7 @@
             </div>
         </div>
         @else
-            <div class="col-18 col-18-m col-7-xl">
+            <div class="w-1/3">
                 <!-- Ultimo Video -->
                 <div class="last-video-dashboard section">
                     <div class="section-header">
@@ -67,7 +67,7 @@
             </div>
         @endif
 
-        <div class="col-18 col-9-m col-6-xl">
+        <div class="w-1/3">
             <!-- Próximas Clases: maximo dos -->
             <clase-next :auth_timezone_difference="{{ App\Models\System\NfitTimeZone::hoursDifferenceSportCenterVsAuthUser() }}"
                         :suggestedClases='@json($next_clases)'>
@@ -103,7 +103,7 @@
             </div> --}}
         </div>
 
-        <div class="col-18 col-9-m col-5-xl">
+        <div class="w-1/3">
             <!-- Rutinas de Hoy -->
             <div class="dashboard-today-routines section">
                 <div class="section-header">

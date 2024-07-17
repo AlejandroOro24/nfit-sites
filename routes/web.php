@@ -8,7 +8,9 @@ use App\Http\Controllers\publicWeb\TrialController;
 use App\Http\Controllers\users\DashboardController;
 use App\Http\Controllers\users\clases\ClaseController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\publicWeb\LoginAndBuyController;
 use App\Http\Controllers\users\profile\ProfileController;
+use App\Http\Controllers\publicWeb\RegisterAndBuyController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
@@ -35,12 +37,23 @@ Route::domain('{tenant}.'. ENV('APP_URL'))->group(function () {
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
-
+    
+    //CLase de prueba
     Route::get('/trial/{id}', [TrialController::class, 'TestReservationRegister'])->name('registerTrial.index');
     Route::post('/trial/register/{clase}', [TrialController::class, 'registerTrial'])->name('registerTrial.store');
     Route::get('/trial/ready/{clase}', [TrialController::class, 'reservationReady'])->name('registerTrial.ready');
 
+    //Solicitud de plan y Registro de usuario
+    Route::get('/registerAndBuy/{id}', [RegisterAndBuyController::class, 'index'])->name('registerAndBuy.index');
+    Route::post('/registerAndBuy/store/{id}', [RegisterAndBuyController::class, 'store'])->name('registerAndBuy.store');
+    Route::get('/registerAndBuy/pay/{id}', [RegisterAndBuyController::class, 'pay'])->name('registerAndBuy.pay');
 
+    //Solicitud de plan y Login
+    Route::get('/loginAndBuy/{id}', [LoginAndBuyController::class, 'index'])->name('loginAndBuy.index');
+    Route::post('/loginAndBuy/store/{id}', [LoginAndBuyController::class, 'store'])->name('loginAndBuy.store');
+    Route::get('/loginAndBuy/pay/{id}', [LoginAndBuyController::class, 'pay'])->name('loginAndBuy.pay');
+
+    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     //clases
